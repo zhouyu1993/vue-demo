@@ -1,0 +1,41 @@
+@import './rem';
+@import './reset';
+@import './font';
+
+.lazy-loading {
+  background: url(https://cmspic-10004025.image.myqcloud.com/48428ea0-7ab9-11e8-9f6d-b92c9702d6e7_size_64x64#gif) center no-repeat;
+  background-size: rem(128) rem(128);
+}
+
+.layout-flex {
+  display: flex;
+
+  &-ac {
+    display: flex;
+    align-items: center;
+  }
+
+  &-acjc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-acjs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.clear-float {
+  zoom: 1;
+
+  &::after {
+    display: block;
+    height: 0;
+    clear: both;
+    content: '';
+    visibility: hidden;
+  }
+}

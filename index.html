@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- https://github.com/joshbuchea/HEAD -->
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="keywords" content="vue,csr,vue-music">
+  <meta name="description" content="A Vue.js project [client-side rendering]">
+  <meta name="format-detection" content="telephone=no,email=no,address=no">
+  <!-- Safari 中识别 APP -->
+  <meta name="apple-itunes-app" content="app-id=?">
+  <!-- 添加到主屏幕后是否全屏模式，脱离 Safari 删除搜索框和工具栏 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- 添加到主屏幕后顶部状态条颜色 -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!-- 添加到主屏幕后应用名称 -->
+  <meta name="apple-mobile-web-app-title" content="vue-music">
+  <!-- 添加到主屏幕后应用图标 -->
+  <link rel="apple-touch-icon" href="https://zhouyu1993.github.io/awesome/vue-music/static/icon.png" type="image/png">
+  <link rel="icon" href="https://zhouyu1993.github.io/awesome/vue-music/static/favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="https://zhouyu1993.github.io/awesome/vue-music/static/manifest.json">
+  <title>vue-music</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    (function () {
+      // Set fontSize for rem
+      function rem () {
+        var html = document.documentElement
+        var width = Math.min(html.getBoundingClientRect().width, 500)
+        var fontSize = width * 100 / 750 + 'px'
+        html.style.fontSize = fontSize
+      }
+      rem()
+      window.onresize = function () { rem() }
+
+      // Use ServiceWorker
+      var openServiceWorker = true
+      if (openServiceWorker) {
+        if ('serviceWorker' in navigator) {
+          /// The scope of ServiceWorker
+          var dev = false
+          var sw = dev ? '/service-worker.js?v=' : '//zhouyu1993.github.io/awesome/vue-music/service-worker.js?v='
+          var _scope = dev ? '/' : '/awesome/vue-music/'
+
+          // ServiceWorker version
+          var version = '2018111501'
+
+          window.addEventListener('load', function () {
+            navigator.serviceWorker.register(sw + version, {
+              scope: _scope
+            }).then(function (registration) {
+              // Register success
+              console.log('ServiceWorker registration successful with scope:', registration.scope)
+
+              // Update ServiceWorker
+              if (localStorage && localStorage.getItem('vue-music-sw-v') !== version) {
+                registration.update().then(function () {
+                  localStorage.setItem('vue-music-sw-v', version)
+                })
+              }
+            }).catch(function (err) {
+              // Register failure
+              console.log('ServiceWorker registration failed:', err)
+            })
+          })
+        }
+      }
+
+      // Add eruda
+      if (/rj_debug=on/.test(window.location)) {
+        document.write('<scr' + 'ipt src="https://cdn.jsdelivr.net/npm/eruda"></scr' + 'ipt>')
+        document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>')
+      }
+    })()
+  </script>
+</body>
+</html>
