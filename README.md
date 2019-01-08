@@ -51,3 +51,5 @@ npm run build --report
   - 通用组件 fixed 2000 - 3000
 
 ## Pages
+
+* [vue-demo](https://zhouyu1993.github.io/awesome/vue-demo/)

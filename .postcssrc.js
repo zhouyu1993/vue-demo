@@ -6,12 +6,12 @@ module.exports = {
     // to edit target browsers: use 'browserslist' field in package.json
     'autoprefixer': {
       'browsers': [
-        "> 1%",
-        "last 3 versions",
-        "ie >= 9",
-        "ios >= 8",
-        "android >= 4.4",
-      ],
-    },
-  },
+        '> 1%',
+        'last 3 versions',
+        'ie >= 9',
+        'ios >= 8',
+        'android >= 4.4'
+      ]
+    }
+  }
 }

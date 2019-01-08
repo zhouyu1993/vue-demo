@@ -5,9 +5,12 @@
   <meta charset="utf-8">
   <meta http-equiv="pragma" content="no-cache">
   <meta http-equiv="cache-control" content="no-cache">
+  <!-- ie浏览器以最高版本ie=edge引擎 -->
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <!-- 360浏览器默认使用极速模式渲染，webkit内核 -->
+  <meta name="renderer" content="webkit">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-  <meta name="keywords" content="vue,csr,vue-music">
+  <meta name="keywords" content="vue,csr,vue-demo">
   <meta name="description" content="A Vue.js project [client-side rendering]">
   <meta name="format-detection" content="telephone=no,email=no,address=no">
   <!-- Safari 中识别 APP -->
@@ -17,12 +20,12 @@
   <!-- 添加到主屏幕后顶部状态条颜色 -->
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <!-- 添加到主屏幕后应用名称 -->
-  <meta name="apple-mobile-web-app-title" content="vue-music">
+  <meta name="apple-mobile-web-app-title" content="vue-demo">
+  <title>vue-demo</title>
   <!-- 添加到主屏幕后应用图标 -->
-  <link rel="apple-touch-icon" href="https://zhouyu1993.github.io/awesome/vue-music/static/icon.png" type="image/png">
-  <link rel="icon" href="https://zhouyu1993.github.io/awesome/vue-music/static/favicon.ico" type="image/x-icon">
-  <link rel="manifest" href="https://zhouyu1993.github.io/awesome/vue-music/static/manifest.json">
-  <title>vue-music</title>
+  <link rel="apple-touch-icon" href="https://zhouyu1993.github.io/awesome/vue-demo/static/icon.png" type="image/png">
+  <link rel="icon" href="https://zhouyu1993.github.io/awesome/vue-demo/static/favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="https://zhouyu1993.github.io/awesome/vue-demo/static/manifest.json">
 </head>
 <body>
   <div id="app"></div>
@@ -44,23 +47,20 @@
         if ('serviceWorker' in navigator) {
           /// The scope of ServiceWorker
           var dev = false
-          var sw = dev ? '/service-worker.js?v=' : '//zhouyu1993.github.io/awesome/vue-music/service-worker.js?v='
-          var _scope = dev ? '/' : '/awesome/vue-music/'
-
-          // ServiceWorker version
-          var version = '2018111501'
+          var sw = dev ? '/service-worker.js?v=' : '//zhouyu1993.github.io/awesome/vue-demo/service-worker.js?v='
+          var _scope = dev ? '/' : '/awesome/vue-demo/'
 
           window.addEventListener('load', function () {
-            navigator.serviceWorker.register(sw + version, {
+            navigator.serviceWorker.register(sw, {
               scope: _scope
             }).then(function (registration) {
               // Register success
               console.log('ServiceWorker registration successful with scope:', registration.scope)
 
               // Update ServiceWorker
-              if (localStorage && localStorage.getItem('vue-music-sw-v') !== version) {
+              if (localStorage && localStorage.getItem('vue-demo-sw-v') !== version) {
                 registration.update().then(function () {
-                  localStorage.setItem('vue-music-sw-v', version)
+                  localStorage.setItem('vue-demo-sw-v', version)
                 })
               }
             }).catch(function (err) {

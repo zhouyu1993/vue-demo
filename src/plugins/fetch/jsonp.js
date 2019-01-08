@@ -7,7 +7,7 @@ import conf from './config.js'
 * @param  {[String]} url     [请求地址]
 * @param  {[Object]} data    [param数据]
 * @param  {[Object]} options [配置参数]
-* e.g: [String]method, [Object]headers, [String]credentials
+* eg. [String]method, [Object]headers, [String]credentials
 * @return {[Object]}      [请求结果，暂时只支持json格式的请求]
 */
 

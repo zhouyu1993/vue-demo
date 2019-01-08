@@ -12,7 +12,7 @@
     background-image:url(https://y.gtimg.cn/music/photo_new/T002R150x150M000${song.albummid}.jpg)`"></div>
     <div class="bg-msk"></div>
     <div class="song-wrapper">
-      <audio :src="`https://dl.stream.qqmusic.qq.com/C100${song.songmid}.m4a?guid=7861386619&vkey=D05CBB30CEF064EB5783C7BCF6A6E9A405616FD64C9749063F95AF6E5784E172BBFD6F122B46E20EFC723F62C1AC1A586282F2F1FA60CA5C&uin=3897&fromtag=38`" loop id="audio" ref="audio"></audio>
+      <audio :src="`https://dl.stream.qqmusic.qq.com/C100${song.songmid}.m4a?guid=7861386619&vkey=D05CBB30CEF064EB5783C7BCF6A6E9A405616FD64C9749063F95AF6E5784E172BBFD6F122B46E20EFC723F62C1AC1A586282F2F1FA60CA5C&uin=3897&fromtag=38`" preload autoplay loop id="audio" ref="audio"></audio>
       <div class="song-info">
         <img :src="`https://y.gtimg.cn/music/photo_new/T002R150x150M000${song.albummid}.jpg`">
         <div class="flex">
@@ -37,7 +37,7 @@
     background-image:url(https://cmspic-10004025.image.myqcloud.com/0064cca0-a684-11e8-9774-f1d87802945e_size_200x200)`"></div>
     <div class="bg-msk"></div>
     <div class="song-wrapper">
-      <audio :src="`https://dl.stream.qqmusic.qq.com/C400${song.mid}.m4a?guid=7861386619&vkey=D05CBB30CEF064EB5783C7BCF6A6E9A405616FD64C9749063F95AF6E5784E172BBFD6F122B46E20EFC723F62C1AC1A586282F2F1FA60CA5C&uin=3897&fromtag=38`" loop id="audio" ref="audio"></audio>
+      <audio :src="`https://dl.stream.qqmusic.qq.com/C400${song.mid}.m4a?guid=7861386619&vkey=D05CBB30CEF064EB5783C7BCF6A6E9A405616FD64C9749063F95AF6E5784E172BBFD6F122B46E20EFC723F62C1AC1A586282F2F1FA60CA5C&uin=3897&fromtag=38`" preload autoplay loop id="audio" ref="audio"></audio>
       <div class="song-info">
         <img src="https://cmspic-10004025.image.myqcloud.com/0064cca0-a684-11e8-9774-f1d87802945e_size_200x200">
         <div class="flex">
@@ -102,21 +102,21 @@ export default {
     if (el) {
       el.play()
 
-      const touchstart = () => {
+      const rePlay = () => {
+        console.log('rePlay')
         el.play()
-        console.log('touchstart')
       }
 
-      document.body.addEventListener('touchstart', touchstart)
+      document.addEventListener('WeixinJSBridgeReady', rePlay)
+      document.addEventListener('touchend', rePlay)
+      document.addEventListener('click', rePlay)
 
-      document.addEventListener('WeixinJSBridgeReady', () => {
-        el.play()
-        console.log('WeixinJSBridgeReady')
-      })
-
-      el.addEventListener('play', () => {
-        document.body.removeEventListener('touchstart', touchstart)
+      el.addEventListener('play', (e) => {
+        console.log('play')
         this.playing = true
+        document.removeEventListener('WeixinJSBridgeReady', rePlay)
+        document.removeEventListener('touchend', rePlay)
+        document.removeEventListener('click', rePlay)
       })
 
       el.addEventListener('pause', () => {

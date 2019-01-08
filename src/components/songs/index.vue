@@ -66,9 +66,11 @@ export default {
       }
     },
     toSong (song) {
-      window.localStorage['vue-demo-song'] = JSON.stringify(song)
+      // window.localStorage['vue-demo-song'] = JSON.stringify(song)
 
-      this.$emit('input', song)
+      // this.$emit('input', song)
+
+      location.href = `//i.y.qq.com/v8/playsong.html?songmid=${song.mid}`
     }
   }
 }

@@ -13,17 +13,17 @@
             "android >= 4.4"
           ]
         },
-        "useBuiltIns": false
+        "useBuiltIns": "usage"
       }
     ],
-    "stage-2"
+    "stage-0"
   ],
   "plugins": [
     [
       "component",
       [
         {
-          "libraryName": "rj-component-vue",
+          "libraryName": "",
           "style": true
         }
       ]

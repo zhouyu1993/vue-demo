@@ -12,7 +12,7 @@ Vue.use(Router)
 */
 
 const router = new Router({
-  base: '/vue-music/', // set base for your project
+  base: '/vue-demo/', // set base for your project
   // mode: 'history',
   routes,
   scrollBehavior (to, from, savedPosition) {

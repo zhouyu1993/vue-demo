@@ -1,6 +1,6 @@
 // sw version，
-var version = '2018111501'
-var CACHE_NAME = 'vue-music-sw-v' + version
+var version = '2019010801'
+var CACHE_NAME = 'vue-demo-sw-v' + version
 
 var urlsToCache = [
   // '/'

@@ -4,7 +4,7 @@
 * body GET 不可以 POST 可以
 * mode
 * credentials
-* eg...
+* etc.
 */
 
 export default {

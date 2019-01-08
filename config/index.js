@@ -65,7 +65,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '//zhouyu1993.github.io/awesome/vue-music/',
+    assetsPublicPath: '//zhouyu1993.github.io/awesome/vue-demo/',
 
     /**
      * Source Maps
