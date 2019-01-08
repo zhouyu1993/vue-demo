@@ -66,7 +66,12 @@ export default {
       if (ed <= 0) {
         this.$$toast('可怜啊你不用交税')
 
-        return
+        return {
+          taxSum: 0,
+          taxs: 0,
+          youMoneySum: 0,
+          youMoneys: 0,
+        }
       }
 
       var taxSum = 0
