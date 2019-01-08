@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    vue-demo home
+    <a href="//zhouyu1993.github.io/awesome/vue-demo/#/salary-tax-calculator">工资(个税)计算器</a>
   </div>
 </template>
 
@@ -22,4 +22,8 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../assets/css/rem';
+
+.home {
+  text-align: center;
+}
 </style>

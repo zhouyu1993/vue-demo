@@ -50,6 +50,9 @@
           var sw = dev ? '/service-worker.js?v=' : '//zhouyu1993.github.io/awesome/vue-demo/service-worker.js?v='
           var _scope = dev ? '/' : '/awesome/vue-demo/'
 
+          // ServiceWorker version
+          var version = '2019010802'
+
           window.addEventListener('load', function () {
             navigator.serviceWorker.register(sw, {
               scope: _scope

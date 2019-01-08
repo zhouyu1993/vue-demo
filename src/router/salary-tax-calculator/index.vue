@@ -63,6 +63,12 @@ export default {
     calculator (money, shebao, gongjijin) {
       var ed = money - shebao - gongjijin - 5000
 
+      if (ed <= 0) {
+        this.$$toast('可怜啊你不用交税')
+
+        return
+      }
+
       var taxSum = 0
       var taxs = []
       var youMoneySum = 0
