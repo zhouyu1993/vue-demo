@@ -10,6 +10,14 @@ export default function intall (Vue) {
     return output
   })
 
+  // 数字
+  Vue.filter('fixNumber', (input, multiple = 100, decimal = 2) => {
+    input = +input
+    multiple = +multiple || 100
+
+    return (input / multiple).toFixed(decimal).replace(/\.?0*$/, '')
+  })
+
   // 时间格式化
   Vue.filter('dateFormate', dateFormate)
 }

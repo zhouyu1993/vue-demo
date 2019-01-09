@@ -25,5 +25,11 @@ export default {
 
 .home {
   text-align: center;
+
+  a {
+    padding-bottom: rem(20);
+    font-size: rem(30);
+    border-bottom: 1px solid #333;
+  }
 }
 </style>

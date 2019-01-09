@@ -27,19 +27,28 @@
       </div>
     </div>
     <h6>公积金基数*公积金比例(8%-12%)</h6>
+    <div class="layout-flex-acjc">
+      <div class="lable">
+        专项附加扣除总额
+      </div>
+      <div class="input">
+        <input type="number" v-model="zhuanxiang">
+      </div>
+    </div>
+    <h6>专项附加扣除(6项，个人所得税申报)</h6>
     <div class="submit-wrap">
       <button class="submit" @click="submit">计算</button>
     </div>
-    <div class="result">
-      <h3>年度收入总额{{youMoneySum}}</h3>
+    <div class="result" v-if="youMoneySum">
+      <h3>年度收入总额：{{youMoneySum | fixNumber(1)}}</h3>
       <h6>每月收入列表</h6>
       <ul>
-        <li v-for="youMoney in youMoneys">{{youMoney}}</li>
+        <li v-for="(youMoney, index) in youMoneys">第{{index + 1}}月：{{youMoney | fixNumber(1)}}</li>
       </ul>
-      <h3>年度交税总额{{taxSum}}</h3>
+      <h3>年度交税总额：{{taxSum | fixNumber(1)}}</h3>
       <h6>每月交税列表</h6>
       <ul>
-        <li v-for="tax in taxs">{{tax}}</li>
+        <li v-for="(tax, index) in taxs">第{{index + 1}}月：{{tax | fixNumber(1)}}</li>
       </ul>
     </div>
   </div>
@@ -53,6 +62,7 @@ export default {
       money: 0,
       shebao: 0,
       gongjijin: 0,
+      zhuanxiang: 0,
       taxSum: 0,
       taxs: [],
       youMoneySum: 0,
@@ -60,8 +70,8 @@ export default {
     }
   },
   methods: {
-    calculator (money, shebao, gongjijin) {
-      var ed = money - shebao - gongjijin - 5000
+    calculator (money, shebao, gongjijin, zhuanxiang) {
+      var ed = money - shebao - gongjijin - zhuanxiang - 5000
 
       if (ed <= 0) {
         this.$$toast('可怜啊你不用交税')
@@ -101,6 +111,7 @@ export default {
         taxSum += tax
 
         var youMoney = money - shebao - gongjijin - tax
+
         youMoneySum += youMoney
 
         taxs.push(tax)
@@ -120,7 +131,7 @@ export default {
         taxs,
         youMoneySum,
         youMoneys,
-      } = this.calculator(this.money, this.shebao, this.gongjijin)
+      } = this.calculator(this.money, this.shebao, this.gongjijin, this.zhuanxiang)
 
       this.taxSum = taxSum
       this.taxs = taxs
@@ -174,8 +185,19 @@ export default {
     border-radius: rem(20);
   }
 
-  ul {
-    text-align: center;
+  .result {
+    h3 {
+      margin-top: rem(20);
+    }
+
+    ul {
+      text-align: center;
+      border: 1px solid #ddd;
+
+      li {
+        padding: rem(10);
+      }
+    }
   }
 }
 </style>
