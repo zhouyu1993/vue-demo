@@ -1,6 +1,11 @@
 <template>
   <div class="home">
-    <a href="//zhouyu1993.github.io/awesome/vue-demo/#/salary-tax-calculator">工资(个税)计算器</a>
+    <p>
+      <a href="//zhouyu1993.github.io/awesome/vue-demo/#/salary-tax-calculator">工资(个税)计算器</a>
+    </p>
+    <p>
+      <a href="//zhouyu1993.github.io/awesome/vue-demo/#/music">音乐搜索</a>
+    </p>
   </div>
 </template>
 
