@@ -17,7 +17,7 @@
         <input type="number" v-model="shebao">
       </div>
     </div>
-    <h6>社保基数*(养老保险比例2%+医疗保险0.8%+失业保险0.05%)</h6>
+    <h6>社保基数*(养老保险比例2%+医疗保险8%+失业保险0.5%)</h6>
     <div class="layout-flex-acjc">
       <div class="lable">
         公积金总额(个人)

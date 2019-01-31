@@ -15,12 +15,19 @@ const _fetch = async (url, data, options) => {
   try {
     const reqUrl = (data && Object.keys(data).length > 0) ? `${url}?${queryString.stringify(data)}` : url
     const op = {
+      returnJSON: true,
       ...conf,
       ...options
     }
+
     const res = await fetch(reqUrl, op)
-    const json = await res.json()
-    return json
+
+    if (op.returnJSON) {
+      const json = await res.json()
+      return json
+    } else {
+      return res
+    }
   } catch (e) {
     throw new Error(e)
   }

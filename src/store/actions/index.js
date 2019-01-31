@@ -1,4 +1,4 @@
-import { fetchJsonp } from '@/plugins/fetch'
+import { fetch, fetchJsonp } from '@/plugins/fetch'
 import api from '../api'
 
 export default {
@@ -49,6 +49,20 @@ export default {
 
         commit('setSearch', search)
       }
+    } catch (e) {
+      throw new Error(e)
+    }
+  },
+  async getSearch3 ({ commit }, { w, p }) {
+    try {
+      const json = await fetch(`${api.forward}/music/api/search`, {
+        w,
+        n: 10,
+        p,
+        format: 'json',
+      })
+
+      console.log(json)
     } catch (e) {
       throw new Error(e)
     }

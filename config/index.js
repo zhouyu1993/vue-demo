@@ -19,6 +19,13 @@ module.exports = {
           '^/cyqq': '', // http://localhost:9876/cyqq/xxx -> https://c.y.qq.com/xxx
         },
       },
+      '/forward': {
+        target: 'http://47.105.150.105',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/forward': '', // http://localhost:9876/cyqq/xxx -> https://c.y.qq.com/xxx
+        },
+      },
     },
 
     // Various Dev Server settings

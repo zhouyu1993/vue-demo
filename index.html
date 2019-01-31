@@ -51,10 +51,10 @@
           var _scope = dev ? '/' : '/awesome/vue-demo/'
 
           // ServiceWorker version
-          var version = '2019010901'
+          var version = '2019013101'
 
           window.addEventListener('load', function () {
-            navigator.serviceWorker.register(sw, {
+            navigator.serviceWorker.register(sw + version, {
               scope: _scope
             }).then(function (registration) {
               // Register success
