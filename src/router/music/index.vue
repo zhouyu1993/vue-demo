@@ -4,7 +4,7 @@
     <songs v-model="song" />
     <!-- <div class="fixed-height"></div> -->
     <!-- <song :currentSong="currentSong" v-if="currentSong.songmid" /> -->
-    <!-- <song :currentSong="currentSong" v-if="currentSong.mid" /> -->
+    <song :currentSong="currentSong" v-if="currentSong.songUrl" />
   </div>
 </template>
 

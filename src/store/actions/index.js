@@ -67,4 +67,20 @@ export default {
       throw new Error(e)
     }
   },
+
+  async getVkey ({ commit }, songmid) {
+    try {
+      const json = await fetch(`//202.182.114.9/api/music/vkey`, {
+        songmid,
+      })
+
+      if (json && json.code === 0 && json.data && json.data.items && json.data.items[0] && json.data.items[0].vkey) {
+        const song = json.data.items[0]
+
+        return `//dl.stream.qqmusic.qq.com/${song.filename}?guid=123456789&vkey=${song.vkey}&uin=0&fromtag=38`
+      }
+    } catch (e) {
+      throw new Error(e)
+    }
+  },
 }

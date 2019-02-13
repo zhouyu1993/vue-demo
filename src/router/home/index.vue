@@ -20,7 +20,36 @@ export default {
   },
   watch: {
   },
-  mounted () {
+  async mounted () {
+    const res1 = await fetch('//202.182.114.9/api/music/gethotkey')
+
+    const json1 = await res1.json()
+
+    console.log(json1)
+
+    const res2 = await fetch('//202.182.114.9/api/music/search?w=陈奕迅')
+
+    const json2 = await res2.json()
+
+    console.log(json2)
+
+    const res3 = await fetch('//202.182.114.9/api/music/singer?singermid=003Nz2So3XXYek')
+
+    const json3 = await res3.json()
+
+    console.log(json3)
+
+    const res4 = await fetch('//202.182.114.9/api/music/vkey?songmid=004ec8yZ02bRYx')
+
+    const json4 = await res4.json()
+
+    console.log(json4)
+
+    const res5 = await fetch('//202.182.114.9/api/music/lyric?songid=5536869')
+
+    const json5 = await res5.json()
+
+    console.log(json5)
   }
 }
 </script>

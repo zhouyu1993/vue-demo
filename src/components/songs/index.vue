@@ -46,7 +46,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getSearch2']),
+    ...mapActions(['getSearch2', 'getVkey']),
     async scrollFun (state) {
       if (state !== 'bottom' || this.loading || this.curnum < 10 || !this.keyword.trim()) return
 
@@ -65,12 +65,22 @@ export default {
         this.$$toast('系统异常')
       }
     },
-    toSong (song) {
-      // window.localStorage['vue-demo-song'] = JSON.stringify(song)
+    async toSong (song) {
+      try {
+        const songUrl = await this.getVkey(song.mid)
 
-      // this.$emit('input', song)
+        if (songUrl) {
+          song.songUrl = songUrl
 
-      location.href = `//i.y.qq.com/v8/playsong.html?songmid=${song.mid}`
+          window.localStorage['vue-demo-song'] = JSON.stringify(song)
+
+          this.$emit('input', song)
+        } else {
+          location.href = `//i.y.qq.com/v8/playsong.html?songmid=${song.mid}`
+        }
+      } catch (e) {
+        location.href = `//i.y.qq.com/v8/playsong.html?songmid=${song.mid}`
+      }
     }
   }
 }
