@@ -66,21 +66,27 @@ export default {
       }
     },
     async toSong (song) {
-      try {
-        const songUrl = await this.getVkey(song.mid)
+      song.songUrl = `//api.bzqll.com/music/tencent/url?id=${song.mid}&key=579621905&br=320`
 
-        if (songUrl) {
-          song.songUrl = songUrl
+      window.localStorage['vue-demo-song'] = JSON.stringify(song)
 
-          window.localStorage['vue-demo-song'] = JSON.stringify(song)
+      this.$emit('input', song)
 
-          this.$emit('input', song)
-        } else {
-          location.href = `//i.y.qq.com/v8/playsong.html?songmid=${song.mid}`
-        }
-      } catch (e) {
-        location.href = `//i.y.qq.com/v8/playsong.html?songmid=${song.mid}`
-      }
+      // try {
+      //   const songUrl = await this.getVkey(song.mid)
+      //
+      //   if (songUrl) {
+      //     song.songUrl = songUrl
+      //
+      //     window.localStorage['vue-demo-song'] = JSON.stringify(song)
+      //
+      //     this.$emit('input', song)
+      //   } else {
+      //     location.href = `//i.y.qq.com/v8/playsong.html?songmid=${song.mid}`
+      //   }
+      // } catch (e) {
+      //   location.href = `//i.y.qq.com/v8/playsong.html?songmid=${song.mid}`
+      // }
     }
   }
 }
