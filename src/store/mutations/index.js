@@ -11,8 +11,7 @@ export default {
         keyword: payload.keyword,
         curnum: payload.curnum,
         curpage: payload.curpage,
-        list: flag.list.concat(payload.list),
-        totalnum: payload.totalnum
+        list: flag.list.concat(payload.list)
       }
     }
   },

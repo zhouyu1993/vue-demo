@@ -33,13 +33,36 @@
       </div>
       <a class="download" :href="`https://dl.stream.qqmusic.qq.com/C100${song.songmid}.m4a?guid=7861386619&vkey=D05CBB30CEF064EB5783C7BCF6A6E9A405616FD64C9749063F95AF6E5784E172BBFD6F122B46E20EFC723F62C1AC1A586282F2F1FA60CA5C&uin=3897&fromtag=38`"><i class="iconfont icon-download"></i></a>
     </div> -->
-    <div class="bg-blur" :style="`
+    <!-- <div class="bg-blur" :style="`
     background-image:url(https://cmspic-10004025.image.myqcloud.com/0064cca0-a684-11e8-9774-f1d87802945e_size_200x200)`"></div>
     <div class="bg-msk"></div>
     <div class="song-wrapper">
       <audio :src="song.songUrl" preload autoplay loop id="audio" ref="audio"></audio>
       <div class="song-info">
         <img src="https://cmspic-10004025.image.myqcloud.com/0064cca0-a684-11e8-9774-f1d87802945e_size_200x200">
+        <div class="flex">
+          <span class="song-name">{{song.name | unicodeTen}}</span>
+          <p class="song-singer">{{song.singer}}</p>
+        </div>
+        <i class="iconfont icon-play" v-if="!playing" @click="play"></i>
+        <i class="iconfont icon-pause" v-else @click="pause"></i>
+      </div>
+      <div class="song-progress">
+        <span class="currentTime">{{currentTime | dateFormate('mm:ss')}}</span>
+        <div class="progress">
+          <p class="progress-played" :style="`width:${progress}`"></p>
+        </div>
+        <span class="duration">{{duration | dateFormate('mm:ss')}}</span>
+      </div>
+      <a class="download" :href="song.songUrl"><i class="iconfont icon-download"></i></a>
+    </div> -->
+    <div class="bg-blur" :style="`
+    background-image:url(${song.pic})`"></div>
+    <div class="bg-msk"></div>
+    <div class="song-wrapper">
+      <audio :src="song.songUrl" preload autoplay loop id="audio" ref="audio"></audio>
+      <div class="song-info">
+        <img :src="song.pic">
         <div class="flex">
           <span class="song-name">{{song.name | unicodeTen}}</span>
           <p class="song-singer">{{song.singer}}</p>

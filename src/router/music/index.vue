@@ -2,8 +2,8 @@
   <div class="music">
     <search />
     <songs v-model="song" />
-    <!-- <div class="fixed-height"></div> -->
     <!-- <song :currentSong="currentSong" v-if="currentSong.songmid" /> -->
+    <div class="fixed-height"></div>
     <song :currentSong="currentSong" v-if="currentSong.songUrl" />
   </div>
 </template>
@@ -42,7 +42,10 @@ export default {
     // 'song.songmid' () {
     //   this.currentSong = this.song
     // },
-    'song.mid' () {
+    // 'song.mid' () {
+    //   this.currentSong = this.song
+    // },
+    'song.id' () {
       this.currentSong = this.song
     },
   },

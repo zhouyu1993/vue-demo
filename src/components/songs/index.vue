@@ -10,9 +10,18 @@
       </div>
     </li>
   </ul> -->
-  <ul class="vue-songs" v-if="songs.length">
+  <!-- <ul class="vue-songs" v-if="songs.length">
     <li v-for="value in songs" @click="toSong(value)">
       <img src="https://cmspic-10004025.image.myqcloud.com/0064cca0-a684-11e8-9774-f1d87802945e_size_200x200">
+      <div class="song-info">
+        <p class="song-name">{{value.name | unicodeTen}}</p>
+        <p class="song-singer">{{value.singer}}</p>
+      </div>
+    </li>
+  </ul> -->
+  <ul class="vue-songs" v-if="songs.length" v-scroll="scrollFun">
+    <li v-for="value in songs" @click="toSong(value)">
+      <img :src="value.pic">
       <div class="song-info">
         <p class="song-name">{{value.name | unicodeTen}}</p>
         <p class="song-singer">{{value.singer}}</p>
@@ -46,14 +55,14 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getSearch2', 'getVkey']),
+    ...mapActions(['getSearch4', 'getVkey']),
     async scrollFun (state) {
       if (state !== 'bottom' || this.loading || this.curnum < 10 || !this.keyword.trim()) return
 
       this.loading = true
 
       try {
-        await this.getSearch2({
+        await this.getSearch4({
           w: this.keyword,
           p: this.curpage + 1
         })
@@ -66,7 +75,9 @@ export default {
       }
     },
     async toSong (song) {
-      song.songUrl = `//api.bzqll.com/music/tencent/url?id=${song.mid}&key=579621905&br=320`
+      // song.songUrl = `//api.bzqll.com/music/tencent/url?id=${song.mid}&key=579621905&br=320`
+
+      song.songUrl = song.url
 
       window.localStorage['vue-demo-song'] = JSON.stringify(song)
 

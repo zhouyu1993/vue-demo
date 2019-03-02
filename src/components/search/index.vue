@@ -27,7 +27,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getSearch2']),
+    ...mapActions(['getSearch4']),
     async submit (keyword) {
       try {
         if (!keyword.trim()) return
@@ -41,9 +41,9 @@ export default {
           window.localStorage['vue-demo-search'] = keyword
         }
 
-        await this.getSearch2({
+        await this.getSearch4({
           w: keyword,
-          p: 1
+          p: 1,
         })
 
         this.keyword = keyword

@@ -45,7 +45,6 @@ export default {
         search.curnum = search.count
         search.curpage = 1
         search.list = search.itemlist
-        search.totalnum = search.count
 
         commit('setSearch', search)
       }
@@ -63,6 +62,31 @@ export default {
       })
 
       console.log(json)
+    } catch (e) {
+      throw new Error(e)
+    }
+  },
+  async getSearch4 ({ commit }, { w, p }) {
+    try {
+      const json = await fetch(`${api.bzqll}/music/tencent/search`, {
+        key: '579621905',
+        s: w,
+        limit: 10,
+        offset: p,
+        type: 'song'
+      })
+
+      if (json.code === 200) {
+        const list = json.data || []
+
+        const search = {}
+        search.keyword = w
+        search.curnum = list.length
+        search.curpage = p
+        search.list = list
+
+        commit('setSearch', search)
+      }
     } catch (e) {
       throw new Error(e)
     }

@@ -26,6 +26,13 @@ module.exports = {
           '^/forward': '', // http://localhost:9876/cyqq/xxx -> https://c.y.qq.com/xxx
         },
       },
+      '/bzqll': {
+        target: 'https://api.bzqll.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/bzqll': '', // http://localhost:9876/bzqll/xxx -> https://api.bzqll.com/xxx
+        },
+      },
     },
 
     // Various Dev Server settings
