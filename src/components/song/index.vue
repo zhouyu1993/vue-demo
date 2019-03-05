@@ -31,7 +31,7 @@
         </div>
         <span class="duration">{{duration | dateFormate('mm:ss')}}</span>
       </div>
-      <a class="download" :href="`https://dl.stream.qqmusic.qq.com/C100${song.songmid}.m4a?guid=7861386619&vkey=D05CBB30CEF064EB5783C7BCF6A6E9A405616FD64C9749063F95AF6E5784E172BBFD6F122B46E20EFC723F62C1AC1A586282F2F1FA60CA5C&uin=3897&fromtag=38`"><i class="iconfont icon-download"></i></a>
+      <a class="download" download :href="`https://dl.stream.qqmusic.qq.com/C100${song.songmid}.m4a?guid=7861386619&vkey=D05CBB30CEF064EB5783C7BCF6A6E9A405616FD64C9749063F95AF6E5784E172BBFD6F122B46E20EFC723F62C1AC1A586282F2F1FA60CA5C&uin=3897&fromtag=38`"><i class="iconfont icon-download"></i></a>
     </div> -->
     <!-- <div class="bg-blur" :style="`
     background-image:url(https://cmspic-10004025.image.myqcloud.com/0064cca0-a684-11e8-9774-f1d87802945e_size_200x200)`"></div>
@@ -54,7 +54,7 @@
         </div>
         <span class="duration">{{duration | dateFormate('mm:ss')}}</span>
       </div>
-      <a class="download" :href="song.songUrl"><i class="iconfont icon-download"></i></a>
+      <a class="download" download :href="song.songUrl"><i class="iconfont icon-download"></i></a>
     </div> -->
     <div class="bg-blur" :style="`
     background-image:url(${song.pic})`"></div>
@@ -77,7 +77,7 @@
         </div>
         <span class="duration">{{duration | dateFormate('mm:ss')}}</span>
       </div>
-      <a class="download" :href="song.songUrl"><i class="iconfont icon-download"></i></a>
+      <a class="download" download :href="song.songUrl"><i class="iconfont icon-download"></i></a>
     </div>
   </div>
 </template>
