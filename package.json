@@ -1,10 +1,9 @@
 {
-  "name": "vue-csr",
+  "name": "vue-demo",
   "version": "3.0.0",
   "description": "A Vue.js project [client-side rendering]",
   "keywords": [
-    "vue",
-    "csr"
+    "vue-demo"
   ],
   "author": "RainJoy <1490079545@qq.com>",
   "private": true,
@@ -18,7 +17,6 @@
   },
   "homepage": "https://zhouyu1993.github.io/awesome/vue-demo/",
   "license": "MIT",
-  "main": "",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "lint": "eslint --ext .js,.vue src",
@@ -84,8 +82,7 @@
     "webpack-merge": "^4.1.0"
   },
   "engines": {
-    "node": ">= 4.0.0",
-    "npm": ">= 3.0.0"
+    "node": ">= 8"
   },
   "browserslist": [
     "> 1%",
