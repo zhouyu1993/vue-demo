@@ -19,9 +19,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "lint": "eslint --ext .js,.vue src",
     "build": "rm -rf dist && node build/build.js",
-    "deploy": "rm -rf ../zhouyu1993.github.io/awesome/vue-demo/* && cp -rf ./dist/* ../zhouyu1993.github.io/awesome/vue-demo"
+    "deploy": "rm -rf ../zhouyu1993.github.io/awesome/vue-demo/* && cp -rf ./dist/* ../zhouyu1993.github.io/awesome/vue-demo",
+    "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
     "fetch-jsonp": "^1.1.3",
