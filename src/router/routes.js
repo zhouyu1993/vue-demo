@@ -4,6 +4,7 @@ const routers = [
   'salary-tax-calculator',
   'todos',
   'todo',
+  'test',
 ]
 
 const routes = routers.map(router => {
@@ -16,6 +17,9 @@ const routes = routers.map(router => {
   } else if (router === 'todo') {
     path = '/todo/:id'
     component = async () => await import('./todos/todo')
+  } else if (router === 'test') {
+    path = '/test/:id'
+    component = async () => await import('./test')
   }
 
   return {

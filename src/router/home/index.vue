@@ -51,11 +51,11 @@ export default {
     //
     // console.log(json5)
 
-    const res6 = await fetch('//api.bzqll.com/music/tencent/search?key=579621905&s=秦时明月&limit=100&offset=0&type=song')
-
-    const json6 = await res6.json()
-
-    console.log(json6)
+    // const res6 = await fetch('//api.bzqll.com/music/tencent/search?key=579621905&s=秦时明月&limit=100&offset=0&type=song')
+    //
+    // const json6 = await res6.json()
+    //
+    // console.log(json6)
   }
 }
 </script>
