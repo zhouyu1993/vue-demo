@@ -8,13 +8,41 @@
 </template>
 
 <script>
+import MiPushSDK from '@/lib/mipushsdk'
+
 export default {
   name: 'app',
   data () {
     return {
       src: require('@/assets/img/logo.png')
     }
-  }
+  },
+  mounted () {
+    const miPushSDK = new MiPushSDK()
+
+    miPushSDK.subscribe({
+      success: (data) => {
+        console.log('%cpush.subscribe.success: ', 'color: #b242ce', data)
+
+        // miPushSDK.setAlias()
+
+        // miPushSDK.setAccount()
+
+        miPushSDK.subscribeTopic()
+
+        setTimeout(() => {
+          // miPushSDK.unsetAlias()
+
+          // miPushSDK.unsetAccount()
+
+          // miPushSDK.unsubscribeTopic()
+        }, 2000)
+      },
+      fail: (data, code) => {
+        console.error('%cpush.subscribe.fail: ', 'color: #ff397e', data, code)
+      },
+    })
+  },
 }
 </script>
 

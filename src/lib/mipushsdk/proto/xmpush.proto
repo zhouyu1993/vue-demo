@@ -1,0 +1,457 @@
+syntax = "proto2";
+
+message XmPushActionContainer {
+    required ActionType action = 1;
+    required bool encryptAction = 2;
+    required bool isRequest = 3;
+    required bytes pushAction = 4;
+    optional string appid = 5;
+    optional string packageName = 6;
+    required Target target = 7;
+    optional PushMetaInfo metaInfo = 8;
+}
+
+message XmPushActionRegistration {
+    optional string debug = 1;                          // used for tracking the action
+    optional Target target = 2; // request for this user/device
+    required string id = 3; // unique id for this action, the request and response use the same id
+    required string appId = 4; // action for this application id. If this is system message, not for specific application, leave it blank
+    optional string appVersion = 5; // the app's version, must specify if Action=Registration
+    optional string packageName = 6; // the client app's packageName in Registration; or send to this packageName in SendMessage
+    required string token = 7; // app token that received when apply XiaomiPush
+    optional string deviceId = 8; // client device id
+    optional string aliasName = 9; // If set, is the alias for the client
+    optional string sdkVersion = 10; // SDK version
+    optional string regId = 11; // regId for refresh ios token
+
+    optional string pushSdkVersionName = 12;
+    optional int32 pushSdkVersionCode = 13;
+    optional int32 appVersionCode = 14;
+    optional string androidId = 15;
+    optional string imei = 16;
+    optional string serial = 17;
+    optional string imeiMd5 = 18;
+    optional int32 spaceId = 19; // MIUI8 space id.
+    optional RegistrationReason reason = 20; // 用来标注是什么原因触发的注册请求
+    optional bool validateToken = 21; // 用于标注IOS注册是否需要验证device token
+    optional int64 miid = 22;
+
+    optional int64 createdTs = 23; // registration请求的初始时间
+    optional string subImei = 24; // 双卡双待的另一个imei
+    optional string subImeiMd5 = 25;
+
+    optional string connectionAttrs = 26; // the connection attributes  map
+    optional bool cleanOldRegInfo = 27; // If true, clear the old reg info before registration
+    optional string oldRegId = 28; // If clearOldRegInfo = true, the field is the old registration id
+}
+
+message XmPushActionRegistrationResult {
+    optional string debug = 1; // used for tracking the action
+    optional Target target = 2; // response from this user/device
+    required string id = 3; // unique id for this action, the request and response use the same id
+    required string appId = 4; // action for this application id. If this is system message, not for specific application, leave it blank
+
+    // Fields for response
+    required int64 errorCode = 5; // errorCode for response
+    optional string reason = 6; // optional error reason for response
+    optional string regId = 7; // register result id for the device of the app, if register fail, set to ""
+    optional string regSecret = 8; // Used to encrypt message, if register failed, set to ""
+    optional string packageName = 9; // the client app's packageName in registration
+    optional int64 registeredAt = 10; // the time this registration processed
+    optional string aliasName = 11; // If set, is the alias for the client during registration
+    optional string clientId = 12; // client device id
+    optional int64 costTime = 13; // time consume unit: millisecond
+    optional string appVersion = 14;
+    optional int32 pushSdkVersionCode = 15;
+    optional string hybridPushEndpoint = 16;
+    optional int32 appVersionCode = 17;
+    optional string region = 18;
+}
+
+message XmPushActionUnRegistration {
+    optional string debug = 1; // used for tracking the action
+    optional Target target = 2; // request for this user/device
+    required string id = 3; // unique id for this action, the request and response use the same id
+    required string appId = 4; // action for this application id. If this is system message, not for specific application, leave it blank
+    optional string regId = 5; // register result id for the device of the app
+    optional string appVersion = 6; // the app's version, must specify if Action=Registration
+    optional string packageName = 7; // the client app's packageName in Registration; or send to this packageName in SendMessage
+
+    optional string token = 8; // app token
+    optional string deviceId = 9; // unregister this device
+    optional string aliasName = 10; // If set, is the alias for the client
+
+    //internal fields
+    optional bool needAck = 11; // If false, no ack to xmq/client
+    optional int64 createdTs = 12;
+}
+
+
+message XmPushActionUnRegistrationResult {
+    optional string debug = 1; // used for tracking the action
+    optional Target target = 2; // response from this user/device
+    required string id = 3; // unique id for this action, the request and response use the same id
+    required string appId = 4; // action for this application id. If this is system message, not for specific application, leave it blank
+
+    // Fields for response
+    required int64 errorCode = 5; // errorCode for response
+    optional string reason = 6; // optional error reason for response
+    optional string packageName = 7; // the client app's packageName
+    optional int64 unRegisteredAt = 8; // the time this unregistration processed
+    optional int64 costTime = 9; // time consume unit: millisecond
+}
+
+//发送消息
+message XmPushActionSendMessage {
+    optional string debug = 1;                                  // used for tracking the action
+    optional Target target = 2;                                 // request for this user/device
+    required string id = 3;                                     // unique id for this action, the request and response use the same id
+    required string appId = 4;                                  // action for this application id. If this is system message, not for specific application, leave it blank
+    optional string packageName = 5;                            // if set, send message to this packageName
+    optional string topic = 6;                                  // If this message is from subscription topics, include the topic here
+    optional string aliasName = 7;                              // if server send message to alias, include in this field
+    optional PushMessage message = 8;                           // the message content that would send to client
+    optional bool needAck = 9;                                  // whether this message should ack
+    optional string params = 10;                                // other parameters not coverd above
+    optional string category = 11;
+    optional string userAccount = 12;                           // if server send message to user account, include in this field
+}
+
+message PushMessage {
+    optional Target to = 1;                                     // push this message to
+    required string id = 2;                                     // message id
+    required string appId = 3;                                  // application id
+    required string payload = 4;                                // The content
+    optional int64 createAt = 5;                                // create date time, in ms
+    optional int64 ttl = 6;                                     // time to live, in ms
+    optional string collapseKey = 7;                            // if set, server collapse the message by this key
+    optional string packageName = 8;                            // send the message to the app of this package name.
+    optional string regId = 9;                                  // send message to this regid, if the client's regid not match, discard the message
+    optional string category = 10;                              // internal category type, used by client routing in-app listeners
+    optional string topic = 11;                                 // If this is broadcast message, set this topic
+    optional PushMetaInfo metaInfo = 12;                        // meta info used for client popup notification
+    optional string aliasName = 13;                             // If set, this is the alias to
+    optional bool isOnline = 14;                                // If true, this message is from online message.
+    optional string userAccount = 15;                           // If set, this is the user account to
+    optional int64 miid = 16;                                   // If set, this is the miid the message about to send to
+    optional string gaid = 17;                                  // If set, this is the gaid the message about to send to
+
+    // Internal fields
+    optional string imeiMd5 = 18;                               // If set, this message sent by this imeiMd5
+    optional string deviceId = 19;                              // If set, this message sent by this deviceid
+}
+
+//通知
+message XmPushActionNotification {
+    optional string debug = 1;                                  // used for tracking the action
+    optional Target target = 2;                                 // request for this user/device
+    required string id = 3;                                     // unique id for this action, the request and response use the same id
+    optional string appId = 4;                                  // action for this application id. If this is system message, not for specific application, leave it blank
+    optional string type = 5;                                   // Notification message type. Such as "notification", "registration id expired", "package uninstaled"...
+    required bool requireAck = 6;                               // whether this message need ack, if =1, must reply to server with the same id, appId, type
+    optional string payload = 7;                                // Notification message payload
+    optional string extra = 8;                                  // extra values. ie, for "registration id expired", extra value: "regid" -> "xxxxxxxxxx"; map
+    // for type of "package uninstaled", "package" -> "com.xiaomi.XMTV" ...
+    optional string packageName = 9;                            // the client app's packageName
+    optional string category = 10;
+    optional PushRegistrationInfo regInfo = 11;                 // addition registration info, associate with current app & package
+    optional string regId = 12;                                 // use for callback
+    optional string aliasName = 13;                             // use for callback
+
+    optional bytes binaryExtra = 14;                            // 数据采集/围栏信息/online config相关的消息体
+
+    optional int64 createdTs = 15;                              // notification请求的初始时间
+
+    optional bool alreadyLogClickInXmq = 16;                    // 标记位, 以后消息点击数的统计会挪到xmq, 用该标志位来记录消息点击数是否已经在
+
+    // xmq记录, 防止在notify-handler中重复记录
+    optional string imeiMd5 = 17;                               // 支持imeimd5 消息的callback回执
+}
+
+/**
+ * The registration info for a user(or device).
+ * Used in HBase user_message, identify the user's registration info.
+ */
+message PushRegistrationInfo {
+    required string appId = 1;                                  // application id
+    required string regId = 2;                                  // registration id
+    required string regSecret = 3;                              // used for client to encrypt message
+    optional string appVersion = 4;                             // client app version
+    optional int64 registeredAt = 5;                            // the time this registration start
+    optional string packageName = 6;                             // client app package name
+    optional string configs = 7;                                // configurations, such as "alias"
+    optional AcceptTimeInfo acceptTime = 8;                     // accept push within this time range
+    optional string resourceId = 9;                             // the client resourceId
+    optional Target target = 10;                                // the target
+    optional string clientId = 11;                              // random string from client, generated by client sdk when the app installed,
+    // if this value diff from client request, must register and generate new regid
+    optional string connectionAttrs = 12;                       // connection attributes
+    optional bool expired = 13 [default = false];               // if not login since 60 days ago, set expired
+    optional string pushSdkVersionName = 14;
+    optional int32 pushSdkVersionCode = 15;
+    optional string androidId = 16;
+    optional bool pushDisabled = 17;                            // 该app的长连接是否关闭状态，由客户端控制，默认不关闭
+    optional BootModeType bootModeType = 18;                    // 客户端长连接启动方式
+    optional int32 appVersionCode = 19;
+    optional string thirdPartyRegInfo = 20;                     // Third party push registration info
+
+    optional bool tokenExpired = 21;                            // Token是否过期，用于判断是否需要重新注册设备
+}
+
+// 客户端长连接启动方式
+enum BootModeType {
+    START = 0;
+    BIND = 1;
+}
+
+/**
+ * Client accept push message within this time range.
+ *
+ */
+message AcceptTimeInfo {
+    //TODO
+    required int32 startHour = 1;                               // the start hour
+    required int32 startMinute = 2;
+    required int32 endHour = 3;
+    required int32 endMinute = 4;
+}
+
+
+enum RegistrationReason {
+    RegIdExpired = 0;
+    PackageUnregistered = 1;
+    Init = 2;
+}
+
+enum ActionType {
+    Registration = 1;                                           // a device register an app
+    UnRegistration = 2;                                         // a device unregister an app
+    Subscription = 3;                                           // a device subscribe a topic
+    UnSubscription = 4;                                         // a device un-subscribe a topic
+    SendMessage = 5;                                            // send a message to device; or 3rd party developers send message to XmPush server
+    AckMessage = 6;                                             // a device ack a message
+    SetConfig = 7;                                              // OBSOLETED: The device set config, such as allowed accept push time, set alias
+    ReportFeedback = 8;                                         // device send feedback report to server
+    Notification = 9;                                           // System notification, such as client->server: "package uninstall"; server->client: "registration id expired" ...
+    Command = 10;                                               // Execute a command, such as "set-alias", "unset-alias"...
+
+    MultiConnectionBroadcast = 11;                               // Tell a client app broadcast to find out other app in the same device
+    MultiConnectionResult = 12;                                 // An app return the result got from multi-connection broadcast
+    ConnectionKick = 13;                                        // Tell an app to logout
+    ApnsMessage = 14;                                           // send message to apns
+    IOSDeviceTokenWrite = 15;                                   // ios deviceToken
+    SaveInvalidRegId = 16;                                      // save invalid regId to hbase
+    ApnsCertChanged = 17;                                       // apns certificate is changed
+    RegisterDevice = 18;                                        // app register the device, save the registration info into hbase
+    ExpandTopicInXmq = 19;                                      // topic broadcast, expand in xmq
+    SendMessageNew = 22;
+    ExpandTopicInXmqNew = 23;
+    DeleteInvalidMessage = 24;                                  // xmq发送regid消息时，如果regid_unmatch，则删除hbase对应的消息
+
+    BadAction = 99;                                             // Bad action type, client don't know this type, for testing
+
+    // Used by server only
+    Presence = 100;                                             // device online or offline
+    FetchOfflineMessage = 101;                                  // fetch offline message for the device
+    SaveJob = 102;                                              // Save job into HBase
+    Broadcast = 103;                                            // 3rd-party developer broadcast messages of a topic
+    BatchPresence = 104;                                        // update batch devices online/offline
+    BatchMessage = 105;                                         // filter batch messages
+    StatCounter = 107;
+    FetchTopicMessage = 108;                                    // fetch topic from fetcher service to broadcast service.
+    DeleteAliasCache = 109;                                     // clean alias cache
+    UpdateRegistration = 110;                                   // for ios registration,notify xmq the reginfo changed
+    BatchMessageNew = 112;
+    PublicWelfareMessage = 113;                                 // 公益消息, 比如寻找走失儿童
+    RevokeMessage = 114;                                        // 撤销通知栏消息
+    NotifyAwakeApp = 115;                                       // fetch->xmq 通知唤醒app
+    SimulatorJob = 200;                                         // Simulator job for stress test
+}
+
+message Target {
+    required int64 channelId = 1;
+    required string userId = 2;
+    optional string server = 3 [default = "xiaomi.com"];
+    optional string resource = 4 [default = ""];
+    optional bool isPreview = 5 [default = false];
+    optional Platform platform = 6;
+    optional string token = 7;
+    optional string siteName = 8;
+}
+
+message PushMetaInfo {
+    required string id = 1;                                     // the original message id
+    required int64 messageTs = 2;                               // timestamp of the original message
+    optional string topic = 3;                                  // if this is a topic-message, set topic
+    optional string title = 4;                                  // title to display on client-popup-bar
+    optional string description = 5;                            // description to display on client-popup-bar
+    optional int32 notifyType = 6;                              // type for client to alert this message, such as ring, shake...
+    optional string url = 7;                                    // url to open for client when user click this push message.
+    optional int32 passThrough = 8;                             // 1 or 0, if this message should pass through to app.
+    optional int32 notifyId = 9;                                // id for notify on android.
+    optional string extra = 10;                                 // extra info for client
+    optional string internal = 11;                              // internal parameters.
+    optional bool ignoreRegInfo = 12 [default = false];         // send message not check whether the app is registered . by liming
+    optional string apsProperFields = 13;                       ////extension fields for aps
+}
+
+enum Platform {
+    Android = 0;
+    iOS = 1;
+    ROUTER = 2;
+    TV = 3;
+    YP = 5;
+    GAME = 8;
+    VRPRO = 10;
+    Hybrid = 11;
+}
+
+/**
+ * Subscription request.
+ */
+message XmPushActionSubscription {
+    optional string debug = 1;                                   // used for tracking the action
+    optional Target target = 2;                                  // request for this user/device, can only choose one of target & aliases
+    required string id = 3;                                      // unique id for this action, the request and response use the same id
+    required string appId = 4;                                   // action for this application id. If this is system message, not for specific application, leave it blank
+    required string topic = 5;                                   // If the user subscribe/unsubscribe topics, this is, separated by ";"
+    optional string packageName = 6;                             // the client app's packageName
+    optional string category = 7;                                // internal category type, used by client routing in-app listeners
+    repeated string aliases = 8;                                       // alias list used to subscribe topic, can only choose one of target & aliases
+}
+
+/**
+ * UnSubscription request.
+ */
+message XmPushActionUnSubscription {
+    optional string debug = 1;                                   // used for tracking the action
+    optional Target target = 2;                                  // request for this user/device
+    required string id = 3;                                      // unique id for this action, the request and response use the same id
+    required string appId = 4;                                   // action for this application id. If this is system message, not for specific application, leave it blank
+    required string topic = 5;                                   // If the user subscribe/unsubscribe topics, this is, separated by ";"
+    optional string packageName = 6;                             // the client app's packageName
+    optional string category = 7;                                // internal category type, used by client routing in-app listeners
+    repeated string aliases = 8;                                       // alias list used to unsubscribe topic
+}
+
+/**
+ * Control command. TODO 从1开始
+ */
+message XmPushActionCommand {
+    optional Target target = 1;                                  // request for this user/device
+    required string id = 2;                                      // unique id for this action, the request and response use the same id
+    required string appId = 3;                                  // action for this application id. If this is system message, not for specific application, leave it blank
+    required string cmdName = 4;                                // Command name, such as "set-alias", "unset-alias",  "accept-time", "pause", "resume"
+    repeated string cmdArgs = 5;                                       // Command arguments, ie, for "set-alias", 1 string in args: <alias name>. If name-value pairs, each line is "<name>=<value>"
+    optional string packageName = 6;                             // the client app's packageName
+    optional PushRegistrationInfo regInfo = 7;                   // addition registration info, associate with current app & package
+    optional string category = 8;
+    optional bool updateCache = 9;                          // used to update in-memory cache
+    optional bool response2Client = 10;
+    optional int64 createdTs = 11;                                 // command请求的初始时间
+}
+
+message XmPushActionSubscriptionResult {
+    optional string debug = 1;                                   // used for tracking the action
+    optional Target target = 2;                                  // response from this user/device
+    required string id = 3;                                      // unique id for this action, the request and response use the same id
+    optional string appId = 4;                                   // action for this application id. If this is system message, not for specific application, leave it blank
+
+    // Fields for response
+    optional int64 errorCode = 5;                                  // errorCode for response
+    optional string reason = 6;                                  // optional error reason for response
+    optional string topic = 7;                                   // subscribed topic
+    optional string packageName = 8;                             // the client app's packageName
+    optional string category = 9;                               // internal category type, used by client routing in-app listeners
+}
+
+message XmPushActionUnSubscriptionResult {
+    optional string debug = 1;                                  // used for tracking the action
+    optional Target target = 2;                                 // response from this user/device
+    required string id = 3;                                     // unique id for this action, the request and response use the same id
+    optional string appId = 4;                                  // action for this application id. If this is system message, not for specific application, leave it blank
+
+    // Fields for response
+    optional int64 errorCode = 5;                               // errorCode for response
+    optional string reason = 6;                                 // optional error reason for response
+    optional string topic = 7;                                  // unsubscribed topic
+    optional string packageName = 8;                            // the client app's packageName
+    optional string category = 9;                               // internal category type, used by client routing in-app listeners
+}
+
+/**
+ * Set config result.
+ */
+message XmPushActionCommandResult {
+    optional Target target = 1;                                 // response from this user/device
+    required string id = 2;                                     // unique id for this action, the request and response use the same id
+    required string appId = 3;                                  // action for this application id. If this is system message, not for specific application, leave it blank
+    required string cmdName = 4;                                // Command name, such as "set-alias", "unset-alias", "accept-time", "pause", "resume"
+
+    // Fields for response
+    required int64 errorCode = 5;                               // errorCode for response. If don't known the command, return UnknownCommand(66300, "æœªçŸ¥çš„å‘½ä»¤"),
+    optional string reason = 6;                                 // optional error reason for response
+    optional string packageName = 7;                            // the client app's packageName
+    repeated string cmdArgs = 8;                                       // the request command arguments
+    optional string category = 9;
+    optional bool response2Client = 10 [default = true];
+}
+
+/**
+ * Ack system notifications.
+ */
+message XmPushActionAckNotification {
+    optional string debug = 1;                              // used for tracking the action
+    optional Target target = 2;                             // response from this user/device
+    required string id = 3;                                 // unique id for this action, the request and response use the same id
+    optional string appId = 4;                              // action for this application id. If this is system message, not for specific application, leave it blank
+    optional string type = 5;                               // Notification message type. Same as XmPushActionNotification.type
+
+    // Fields for response
+    optional int64 errorCode = 6;                           // Ack result, if client don't know the notification, set error code: UnknownNotificationType(66200, "æœªçŸ¥çš„é€šçŸ¥ç±»åž‹")
+    optional string reason = 7;                             // optional error reason for response
+    optional string extra = 8;                              // map extra values.
+    optional string packageName = 9;                        // the client app's packageName
+    optional string category = 10;
+}
+
+message XmPushActionAckMessage {
+    optional string debug = 1;                                   // used for tracking the action
+    optional Target target = 2;                                  // response from this user/device
+    required string id = 3;                                      // unique id for this action, the request and response use the same id
+    required string appId = 4;                                   // action for this application id. If this is system message, not for specific application, leave it blank
+    required int64 messageTs = 5;                                  // message timestamp, the value of createAt in PushMessage
+    optional string topic = 6;                                   // topic in the PushMessage, if not set, treat as simple message
+    optional string aliasName = 7;                               // alias in send message, if not set, treat as simple message
+    optional XmPushActionSendMessage request = 8;                // the request info
+    optional string packageName = 9;                             // the client app's packageName
+    optional string category = 10;
+    optional bool isOnline = 11;                             // if true, this message is online message
+    optional string regId = 12;                                  // regId in send message
+    optional string callbackUrl = 13;                            // third-party ack callback url
+    optional string userAccount = 14;                             // user account in send message, if not set, treat as simple message
+    optional int32 deviceStatus = 15;                              // 收到消息时设备状态 低位开始用  // bit 0-1 当前APP通知栏是否被禁  // bit 2 是否锁屏 // bit 3 是否充电
+    optional int32 geoMsgStatus = 16;                              // 地理围栏消息状态, 低位开始用, bit 0: 消息送达设备, bit 1: 消息展示, bit 3: 消息过期
+    optional string gaid = 17;                                   // gaid in send message, if not set, treat as simple message
+    // Internal fields
+    optional string imeiMd5 = 18;        // If set, this message sent by this imeiMd5
+    optional string deviceId = 19;       // If set, this message sent by this deviceid
+    optional int32 passThrough = 20;        // 1 or 0, if this message should pass through to app.
+    optional string extra = 21;
+    optional XmPushActionAckExtention extension = 22;
+}
+
+message XmPushActionAckExtention {
+    required int32 logType = 1;
+    optional string model = 2;
+    optional int32 platform = 3;
+    optional string clientIp = 4;
+    optional int32 sdkVersionCode = 5;
+    optional string attrs = 6;          //map
+    optional string appVersionName = 7;
+    optional PushMetaInfo metaInfo = 8;
+    optional string deviceIdentifier = 9;
+    optional string jobkey = 10;
+    optional string source = 11;
+    optional string topicInfo = 12;
+}

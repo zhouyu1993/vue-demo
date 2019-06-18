@@ -1,0 +1,113 @@
+syntax = "proto2";
+
+// ClientHeader
+// 客户端 PushService 和 FE 之间的 header：
+message ClientHeader {
+  optional int32  chid = 1; // channelId，通道id，业务id。1代表miliao，5代表mipush
+  optional int64  uuid = 2; // userId，用户id。如一开始没有，初始化为 'web' 或 'websocket'
+  optional string server = 3; // 服务，xiaomi.com ???
+  optional string resource = 4; // 随机，？？？
+
+  optional string cmd = 5; // 命令，CONN、BIND、SECMSG、PING 等
+  optional string subcmd = 6; // 子命令，通常与 SECMSG 命令结合使用
+  optional string id = 7; // 随机，？？？
+
+  enum MSG_DIR_FLAG {
+    CS_ONEWAY = 1; // 单次发送
+    CS_REQ = 2; // 隐含了 RPC 语义
+    CS_RESP = 3; // 作为 RPC 的应答
+    SC_ONEWAY = 4;
+    SC_REQ = 5;
+    SC_RESP = 6;
+  }
+
+  optional MSG_DIR_FLAG dir_flag = 8;
+  // 指定消息的方向（CS：上行，SC：下行）
+  // 客户端和 FE 通过方向以及 REQ/RESP 判断应该使用什么格式解析 PB
+
+  optional int32 cipher = 9; // payload 的加密方法 0：未加密；1：RC4 加密；2：AES 加密
+
+  // 错误码
+  optional int32  err_code = 10;
+  optional string err_str = 11;
+}
+// 1. 如果是某一Command请求触发的通道级错误，由该Command的回包来返回错误，PBHead中需增加error_code、error_str的字段
+// 2. 进一步补充1，如果Command = XmlMsg，则填error_code，并在resp包体中填按老逻辑生成的错误描述xml；如果Command = SecMsg，则填error_code和error_str，包体不用填
+// 3. 如果不是某一Command请求触发的通道级错误，或者是用于控制PushService做某些行为的信令，使用Notify命令下发
+
+// push service 相关的指令
+message PushServiceConfigMsg {
+  optional bool fetchBucket = 1;
+  optional int32 clientVersion = 3;
+  optional int32 cloudVersion = 4;
+  optional int32 dots = 5; // seconds for dot
+}
+
+// cmd = "CONN"
+// 建立 TCP 连接之后，PushService 发送一个类似 <stream> 的连接发起消息。payload 的结构为：
+message XMMsgConn {
+  optional uint32 version = 1; // 可能是通信信令的version ？？？
+  optional string model = 2; // 机型
+  optional string os = 3; // 机型版本号，操作系统版本名称 ？？？
+  optional string udid = 4; // 即 <stream:stream> 中的 uid，sha1(IMEI) 得到的一个字串 ？？？
+  optional int32  sdk = 5; // sdk版本号
+  optional string connpt = 6; // 连接网络类型，如 'wifi'
+  optional string host = 7; // 连接服务器的 host id ？？？
+  optional string locale = 8; // 系统地区或系统语言 ？？？
+  optional PushServiceConfigMsg psc = 9; // push service 相关的指令 ？？？
+  optional int32 andver = 10; // 安卓版本号
+}
+// FE 会回一条应答消息：
+message XMMsgConnResp {
+  optional string challenge = 1; // 用于加密校验 ？？？
+  optional string host = 2; // FE 的 host id ？？？
+  optional PushServiceConfigMsg psc = 3; // push service 相关的指令 ？？？
+}
+
+// cmd = "BIND"
+// 用户鉴权/登录，PushService 给 FE 发一条登录消息：
+message XMMsgBind {
+  optional string token = 1;
+  optional string kick = 2;
+  optional string method = 3;
+  optional string client_attrs = 4;
+  optional string cloud_attrs = 5;
+  optional string sig = 6;
+}
+// subcmd = "XMPP"
+// FE 回给 PushService 登录结果：
+message XMMsgBindResp {
+  optional bool result = 1; // 成功与否
+  optional string error_type = 2;
+  optional string error_reason = 3;
+  optional string error_desc = 4;
+}
+
+// cmd = "UBND"
+// 用户退出登录。信息在 ClientHeader 中都包含了，不需要 payload。
+
+// cmd = "PING"
+// 客户端和 FE 之间维护心跳。payload 带有打点数据：
+message XMMsgPing {
+  optional bytes stats = 1;  // 发往FE的Ping包中，带有XMPP协议中的thrift打点数据，但去除了Base64编码.
+  optional PushServiceConfigMsg psc = 2;
+}
+// Client Ping: ClientHeader.id = 0，客户端每5分钟发一次，FE必须应答。
+// Server Ping: ClientHeader.id = 1，FE在6分钟内没有收到ClientPing会发，客户端如果在该时间段内没有发过Ping，则需要应答。
+// 若客户端应答了Server Ping，则5分钟内无需再发ping；FE若收到Server ping的应答包（ClientHeader.id = 1的ping包），则忽略掉这个ping。
+
+// cmd = "KICK"
+message XMMsgKick {
+  optional string type = 1;
+  optional string reason = 2;
+  optional string desc = 3;
+}
+
+// cmd = "SECMSG" ？
+
+// cmd = "NOTIFY"
+// 用于FE通知Push service服务器处理出错
+message XMMsgNotify {
+  optional int32  err_code = 1;
+  optional string err_str  = 2;
+}

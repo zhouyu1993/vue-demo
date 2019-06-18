@@ -33,6 +33,14 @@ module.exports = {
           '^/bzqll': '', // http://localhost:9876/bzqll/xxx -> https://api.bzqll.com/xxx
         },
       },
+
+      '/mipush': {
+        target: 'http://10.38.163.29:9085',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/mipush': '',
+        },
+      },
     },
 
     // Various Dev Server settings
