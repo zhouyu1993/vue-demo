@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <div class="logo">
+    <!-- <div class="logo">
       <img :src="src">
-    </div>
+    </div> -->
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import MiPushSDK from '@/lib/mipushsdk'
+// import MiPushSDK from '@/lib/mipushsdk'
 
 export default {
   name: 'app',
@@ -18,30 +18,30 @@ export default {
     }
   },
   mounted () {
-    const miPushSDK = new MiPushSDK()
-
-    miPushSDK.subscribe({
-      success: (data) => {
-        console.log('%cpush.subscribe.success: ', 'color: #b242ce', data)
-
-        // miPushSDK.setAlias()
-
-        // miPushSDK.setAccount()
-
-        miPushSDK.subscribeTopic()
-
-        setTimeout(() => {
-          // miPushSDK.unsetAlias()
-
-          // miPushSDK.unsetAccount()
-
-          // miPushSDK.unsubscribeTopic()
-        }, 2000)
-      },
-      fail: (data, code) => {
-        console.error('%cpush.subscribe.fail: ', 'color: #ff397e', data, code)
-      },
-    })
+    // const miPushSDK = new MiPushSDK()
+    //
+    // miPushSDK.subscribe({
+    //   success: (data) => {
+    //     console.log('%cpush.subscribe.success: ', 'color: #b242ce', data)
+    //
+    //     // miPushSDK.setAlias()
+    //
+    //     // miPushSDK.setAccount()
+    //
+    //     miPushSDK.subscribeTopic()
+    //
+    //     setTimeout(() => {
+    //       // miPushSDK.unsetAlias()
+    //
+    //       // miPushSDK.unsetAccount()
+    //
+    //       // miPushSDK.unsubscribeTopic()
+    //     }, 2000)
+    //   },
+    //   fail: (data, code) => {
+    //     console.error('%cpush.subscribe.fail: ', 'color: #ff397e', data, code)
+    //   },
+    // })
   },
 }
 </script>
@@ -51,7 +51,7 @@ export default {
 
 #app {
   width: rem(750);
-  margin: 0 auto;
+  margin: rem(50) auto;
 
   .logo {
     padding: rem(20) 0;

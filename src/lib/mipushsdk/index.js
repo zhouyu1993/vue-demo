@@ -1022,6 +1022,8 @@ function MiPushSDK () {
     unsubscribeSuccess = success
     unsubscribeFail = fail
 
+    console.log(unsubscribeFail)
+
     sendUnRegistration()
   }
 

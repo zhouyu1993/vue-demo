@@ -2,6 +2,7 @@ const routers = [
   'home',
   'music',
   'salary-tax-calculator',
+  'rose',
   'todos',
   'todo',
   'test',
