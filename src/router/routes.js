@@ -3,6 +3,7 @@ const routers = [
   'music',
   'salary-tax-calculator',
   'rose',
+  'force-refresh',
   'todos',
   'todo',
   'test',

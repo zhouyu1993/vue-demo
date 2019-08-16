@@ -3,14 +3,26 @@
     <div class="vue-search-wrapper">
       <div class="search-content">
         <i class="iconfont icon-sousuo"></i>
-        <input class="input" placeholder="搜索歌曲、歌单、专辑" v-model="keyword" @keyup.enter="submit(keyword)" @focus="focus">
+        <input
+          class="input"
+          placeholder="搜索歌曲、歌单、专辑"
+          v-model="keyword"
+          @keyup.enter="submit(keyword)"
+          @focus="focus"
+        >
         <i class="iconfont icon-x" v-show="keyword.length" @click="clear"></i>
       </div>
       <div class="search-cancel" v-show="visible" @click="cancel">取消</div>
     </div>
     <ul class="vue-search-records" v-if="records" v-show="visible">
-      <li v-for="value in records" @click="submit(value)"><i class="iconfont icon-clockoutline"></i><span>{{value}}</span><i class="iconfont icon-close" @click.self.stop="del(value)"></i></li>
-      <li class="records-clear" @click="clearAll"><p>清除搜索记录</p></li>
+      <li v-for="(value, index) in records" :key="index" @click="submit(value)">
+        <i class="iconfont icon-clockoutline"></i>
+        <span>{{value}}</span>
+        <i class="iconfont icon-close" @click.self.stop="del(value)"></i>
+      </li>
+      <li class="records-clear" @click="clearAll">
+        <p>清除搜索记录</p>
+      </li>
     </ul>
   </div>
 </template>
@@ -27,7 +39,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getSearch4']),
+    ...mapActions(['getSearch2']),
     async submit (keyword) {
       try {
         if (!keyword.trim()) return
@@ -41,7 +53,7 @@ export default {
           window.localStorage['vue-demo-search'] = keyword
         }
 
-        await this.getSearch4({
+        await this.getSearch2({
           w: keyword,
           p: 1,
         })

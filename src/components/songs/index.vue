@@ -9,7 +9,7 @@
         </p>
       </div>
     </li>
-  </ul> -->
+  </ul>-->
   <!-- <ul class="vue-songs" v-if="songs.length">
     <li v-for="value in songs" @click="toSong(value)">
       <img src="https://cmspic-10004025.image.myqcloud.com/0064cca0-a684-11e8-9774-f1d87802945e_size_200x200">
@@ -18,10 +18,10 @@
         <p class="song-singer">{{value.singer}}</p>
       </div>
     </li>
-  </ul> -->
+  </ul>-->
   <ul class="vue-songs" v-if="songs.length" v-scroll="scrollFun">
-    <li v-for="value in songs" @click="toSong(value)">
-      <img :src="value.pic">
+    <li v-for="(value, index) in songs" :key="index" @click="toSong(value)">
+      <img :src="value.pic || require('@/assets/img/logo.png')">
       <div class="song-info">
         <p class="song-name">{{value.name | unicodeTen}}</p>
         <p class="song-singer">{{value.singer}}</p>
@@ -81,16 +81,16 @@ export default {
 
       window.localStorage['vue-demo-song'] = JSON.stringify(song)
 
-      this.$emit('input', song)
+      // this.$emit('input', song)
 
       // try {
       //   const songUrl = await this.getVkey(song.mid)
-      //
+
       //   if (songUrl) {
       //     song.songUrl = songUrl
-      //
+
       //     window.localStorage['vue-demo-song'] = JSON.stringify(song)
-      //
+
       //     this.$emit('input', song)
       //   } else {
       //     location.href = `//i.y.qq.com/v8/playsong.html?songmid=${song.mid}`
@@ -98,6 +98,8 @@ export default {
       // } catch (e) {
       //   location.href = `//i.y.qq.com/v8/playsong.html?songmid=${song.mid}`
       // }
+
+      location.href = `//i.y.qq.com/v8/playsong.html?songmid=${song.mid}`
     }
   }
 }

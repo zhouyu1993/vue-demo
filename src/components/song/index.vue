@@ -3,7 +3,7 @@
     <div v-show="loading" class="loading">
       <div class="loading-core">
         <div class="loading-wrap">
-          <div class="loading-item" v-for="i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]"></div>
+          <div class="loading-item" v-for="i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]" :key="i"></div>
         </div>
         <div class="loading-text">努力加载中...</div>
       </div>
@@ -32,7 +32,7 @@
         <span class="duration">{{duration | dateFormate('mm:ss')}}</span>
       </div>
       <a class="download" download :href="`https://dl.stream.qqmusic.qq.com/C100${song.songmid}.m4a?guid=7861386619&vkey=D05CBB30CEF064EB5783C7BCF6A6E9A405616FD64C9749063F95AF6E5784E172BBFD6F122B46E20EFC723F62C1AC1A586282F2F1FA60CA5C&uin=3897&fromtag=38`"><i class="iconfont icon-download"></i></a>
-    </div> -->
+    </div>-->
     <!-- <div class="bg-blur" :style="`
     background-image:url(https://cmspic-10004025.image.myqcloud.com/0064cca0-a684-11e8-9774-f1d87802945e_size_200x200)`"></div>
     <div class="bg-msk"></div>
@@ -55,7 +55,7 @@
         <span class="duration">{{duration | dateFormate('mm:ss')}}</span>
       </div>
       <a class="download" download :href="song.songUrl"><i class="iconfont icon-download"></i></a>
-    </div> -->
+    </div>-->
     <div class="bg-blur" :style="`
     background-image:url(${song.pic})`"></div>
     <div class="bg-msk"></div>
@@ -77,7 +77,9 @@
         </div>
         <span class="duration">{{duration | dateFormate('mm:ss')}}</span>
       </div>
-      <a class="download" download :href="song.songUrl"><i class="iconfont icon-download"></i></a>
+      <a class="download" download :href="song.songUrl">
+        <i class="iconfont icon-download"></i>
+      </a>
     </div>
   </div>
 </template>
@@ -208,12 +210,12 @@ export default {
       font-size: rem(32);
       text-align: center;
       word-break: break-all;
-      background-color: rgba(0, 0, 0, .7);
+      background-color: rgba(0, 0, 0, 0.7);
       transform: translate3d(-50%, 0, 0);
 
-      $centerRadius: .8em;
-      $itemWidth: .4em;
-      $itemHeight: .1em;
+      $centerRadius: 0.8em;
+      $itemWidth: 0.4em;
+      $itemHeight: 0.1em;
       $width: $centerRadius + $itemWidth * 2;
       $height: $width;
 
@@ -252,7 +254,7 @@ export default {
               }
             }
           }
-      }
+        }
       }
 
       .loading-text {
@@ -280,7 +282,7 @@ export default {
     z-index: 999;
     width: rem(750);
     height: rem(500);
-    background-color: rgba(0, 0, 0, .6);
+    background-color: rgba(0, 0, 0, 0.6);
   }
 
   .song-wrapper {
@@ -292,7 +294,7 @@ export default {
       display: flex;
       align-items: center;
       padding: rem(20);
-      background-color: rgba(0, 0, 0, .1);
+      background-color: rgba(0, 0, 0, 0.1);
 
       img {
         width: rem(160);
@@ -306,10 +308,11 @@ export default {
         color: #fff;
       }
 
-      .icon-play, .icon-pause {
+      .icon-play,
+      .icon-pause {
         font-size: rem(70);
         color: #fff;
-        opacity: .6;
+        opacity: 0.6;
       }
     }
 
@@ -323,7 +326,7 @@ export default {
       height: rem(100);
       padding: rem(20);
       color: #fff;
-      background-color: rgba(0, 0, 0, .1);
+      background-color: rgba(0, 0, 0, 0.1);
 
       .progress {
         flex: 1;

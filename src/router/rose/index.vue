@@ -1,14 +1,14 @@
 <template lang="html">
   <div class="rose">
-    <h1>按 ctrl+f 然后输入 9</h1>
+    <button @click="messageBox">求生欲</button>
     <pre>
-      99669999996669999996699666699666999966699666699
-      99699999999699999999699666699669966996699666699
-      99669999999999999996699666699699666699699666699
-      99666699999999999966666999966699666699699666699
-      99666666999999996666666699666699666699699666699
-      99666666669999666666666699666669966996699666699
-      99666666666996666666666699666666999966669999996
+      <span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>
+      <span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>
+      <span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>
+      <span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>
+      <span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>666666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66666666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>
+      <span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66666666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666666666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>
+      <span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>666666666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66666666666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>666666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6
     </pre>
     <canvas id="rose-canvas"></canvas>
   </div>
@@ -19,7 +19,14 @@
   width: 400px;
   margin: 0 auto;
 
-  h1 {
+  button {
+    position: relative;
+    left: 50%;
+    width: 100px;
+    margin-left: -50px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #f0397e;
     text-align: center;
   }
 }
@@ -93,23 +100,20 @@ export default {
             var n = j ? 6 : 4
             var o = 0.5 / (a + 0.01) + C(b * 125) * 3 - a * 300
             var w = b * h
-            return [o * C(n) + w * S(n) + j * 610 - 390, o * S(n) - w * C(n) + 550 - j * 350, 1180 + C(B + A) * 99 - j *
-                  300, 0.4 - a * 0.1 + P(1 - B * B, -h * 6) * 0.15 - a * b * 0.4 + C(a + b) / 5 + P(C((o * (a + 1) + (B >
-                      0 ? w : -w)) / 25), 30) * 0.1 * (1 - B * B), o / 1e3 + 0.7 - o * w * 3e-6]
+            return [o * C(n) + w * S(n) + j * 610 - 390, o * S(n) - w * C(n) + 550 - j * 350, 1180 + C(B + A) * 99 - j * 300, 0.4 - a * 0.1 + P(1 - B * B, -h * 6) * 0.15 - a * b * 0.4 + C(a + b) / 5 + P(C((o * (a + 1) + (B >
+              0 ? w : -w)) / 25), 30) * 0.1 * (1 - B * B), o / 1e3 + 0.7 - o * w * 3e-6]
           }
           if (c > 32) {
             c = c * 1.16 - 0.15
             o = a * 45 - 20
             w = b * b * h
             var z = o * S(c) + w * C(c) + 620
-            return [o * C(c) - w * S(c), 28 + C(B * 0.5) * 99 - b * b * b * 60 - z / 2 - h, z, (b * b * 0.3 + P((1 - (A *
-                  A)), 7) * 0.15 + 0.3) * b, b * 0.7]
+            return [o * C(c) - w * S(c), 28 + C(B * 0.5) * 99 - b * b * b * 60 - z / 2 - h, z, (b * b * 0.3 + P((1 - (A * A)), 7) * 0.15 + 0.3) * b, b * 0.7]
           }
           o = A * (2 - b) * (80 - c * 2)
           w = 99 - C(A) * 120 - C(b) * (-h - c * 4.9) + C(P(1 - b, 7)) * 50 + c * 2
           z = o * S(c) + w * C(c) + 700
-          return [o * C(c) - w * S(c), B * 99 - C(P(b, 7)) * 50 - c / 3 - z / 1.35 + 450, z, (1 - b / 1.2) * 0.9 + a * 0.1,
-            P((1 - b), 20) / 4 + 0.05]
+          return [o * C(c) - w * S(c), B * 99 - C(P(b, 7)) * 50 - c / 3 - z / 1.35 + 450, z, (1 - b / 1.2) * 0.9 + a * 0.1, P((1 - b), 20) / 4 + 0.05]
         }
       }
 
@@ -130,7 +134,7 @@ export default {
               m[q] = z
 
               a.fillStyle = 'rgb(' + ~(s[3] * h) + ',' + ~(s[4] * h) +
-                  ',' + ~(s[3] * s[3] * -80) + ')'
+                ',' + ~(s[3] * s[3] * -80) + ')'
 
               a.fillRect(x, y, 1, 1)
             }
@@ -143,9 +147,7 @@ export default {
         message: this.messages[this.i],
         closeOnClickModal: false,
       }).then(res => {
-        if (this.i === this.messages.length - 1) {
-          this.createRose()
-        } else {
+        if (this.i !== this.messages.length - 1) {
           this.i++
 
           this.messageBox()
@@ -154,7 +156,7 @@ export default {
     },
   },
   mounted () {
-    this.messageBox()
+    this.createRose()
   },
 
 }
