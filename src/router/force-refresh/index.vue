@@ -13,12 +13,31 @@
     <div class="tip">
       <h1>Other Forced Refresh Methods</h1>
       <pre>
-1. Force refresh on current page
+1. Use chrome brower and open the page that you are using,
 
-  If windows, press `Ctrl + Shift + R`, or `Ctrl+F5`
+   then force refresh on current page.
 
-  If mac, press `Cmd + Shft + R`
+    If windows, press `Ctrl + Shift + R`, or `Ctrl + F5`
+
+    If mac, press `Cmd + Shift + R`
       </pre>
+      <pre>
+2. Use chrome brower and open the page that you are using,
+
+   then open the developer tools.
+
+    If windows, press `Ctrl + Shift + I`
+
+    If mac, press `Cmd + Shift + I`
+
+    2.1 Open the Network Conditions drawer.
+
+    2.2 Check or uncheck the Disable cache checkbox.
+
+    2.3 Don't close the Network Conditions drawer and just refresh the page.
+      </pre>
+      <img src="https://developers.google.com/web/tools/chrome-devtools/network/imgs/disable-cache.svg?hl=zh-cn">
+      <a href="https://developers.google.com/web/tools/chrome-devtools/network/reference?hl=zh-cn#disable-cache">Read more...</a>
     </div>
   </div>
 </template>
@@ -62,6 +81,10 @@
 
   pre {
     font-size: rem(24);
+  }
+
+  a {
+    color: #ff0973;
   }
 }
 </style>
