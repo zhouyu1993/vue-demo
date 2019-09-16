@@ -28,7 +28,7 @@
 
     If windows, press `Ctrl + Shift + I`
 
-    If mac, press `Cmd + Shift + I`
+    If mac, press `Cmd + Option + I`
 
     2.1 Open the Network Conditions drawer.
 
