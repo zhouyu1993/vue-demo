@@ -105,7 +105,7 @@ export default {
       if (/\?/.test(url)) {
         const urlArr = url.split('?')
 
-        const query = queryString.parse(urlArr[1])
+        const query = queryString.parse(urlArr[urlArr.length - 1])
 
         const queryStr = queryString.stringify({
           ...query,

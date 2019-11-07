@@ -26,7 +26,7 @@
       <a @click="channelReady">检测平台是否支持服务</a>
     </p>
 
-    <p>如不能跳转，请使用安卓手机的搜索功能，搜索“雨乐”快应用</p>
+    <p>如不能跳转，请使用安卓手机的全局搜索，搜索“雨乐”快应用</p>
   </div>
 </template>
 
@@ -70,7 +70,7 @@ export default {
   data () {
     return {
       packageName: 'com.rainjoy1993qa',
-      path: '/WebSocket',
+      path: 'WebSocket',
       params: '{"debug":"on"}',
       url: 'hap://app/com.rainjoy1993qa/WebSocket?debug=on',
     }
@@ -124,28 +124,31 @@ export default {
   },
 
   beforeMount () {
-    const queryStr = location.href.split('?')[1]
+    const url = location.href
+
+    console.log(url)
+
+    const urlArr = url.split('?')
+
+    console.log(urlArr)
+
+    const queryStr = urlArr[urlArr.length - 1]
+
     if (queryStr) {
-      const obj = {}
+      const query = queryString.parse(queryStr)
 
-      const arr = queryStr.split('&')
+      console.log(query)
 
-      arr.forEach(item => {
-        const _arr = item.split('=')
-
-        obj[_arr[0]] = decodeURIComponent(_arr[1])
-      })
-
-      if (obj.packageName) {
-        this.packageName = obj.packageName
+      if (query.packageName) {
+        this.packageName = query.packageName
       }
 
-      if (obj.path) {
-        this.path = obj.path
+      if (query.path) {
+        this.path = query.path
       }
 
-      if (obj.params) {
-        this.params = obj.params
+      if (query.params) {
+        this.params = query.params
       }
 
       this.toQa()
