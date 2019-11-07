@@ -4,6 +4,7 @@ const routers = [
   'salary-tax-calculator',
   'rose',
   'force-refresh',
+  'midc',
   'todos',
   'todo',
   'test',
