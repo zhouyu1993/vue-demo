@@ -88,12 +88,16 @@ export default {
       if (packageName) {
         this.$$toast('正在跳转')
 
-        if (params) {
-          params = JSON.parse(params)
+        try {
+          if (params) {
+            params = JSON.parse(params)
 
-          window.appRouter(packageName, path, params)
-        } else {
-          window.appRouter(packageName, path)
+            window.appRouter(packageName, path, params)
+          } else {
+            window.appRouter(packageName, path)
+          }
+        } catch (e) {
+          console.error(e)
         }
 
         const st = setTimeout(() => {
