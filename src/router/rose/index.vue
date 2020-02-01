@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="rose">
-    <button @click="messageBox">求生欲</button>
+    <button @click="messageBox">20200202</button>
     <pre>
       <span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>
       <span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>
@@ -43,23 +43,40 @@ export default {
     return {
       i: 0,
       messages: [
-        '我有些话想对你说：',
-        '从现在开始，我只疼你一个，宠你，不会骗你，',
-        '答应你的每一件事情，我都会做得到，',
-        '对你讲的每一句话，都是真话，',
-        '不欺负你，不骂你，相信你，',
-        '有人欺负你，我会在第一时间来帮你，',
-        '你开心的时候，我会陪着你开心，',
-        '你不开心，我也会哄着你开心，',
-        '永远觉得你最漂亮，做梦都会梦见你，',
-        '在我的心里，只有你！',
-        '工资奖金全交，',
-        '剩菜剩饭全包，',
-        '家务杂活全干，',
-        '一切以老婆的话为最高宗旨，遵循2条原则：',
-        '第一，老婆的话都是对的；',
-        '第二，即使老婆错了，按照第一条执行。',
-        '我爱你！'
+        // '我有些话想对你说：',
+        // '从现在开始，我只疼你一个，宠你，不会骗你，',
+        // '答应你的每一件事情，我都会做得到，',
+        // '对你讲的每一句话，都是真话，',
+        // '不欺负你，不骂你，相信你，',
+        // '有人欺负你，我会在第一时间来帮你，',
+        // '你开心的时候，我会陪着你开心，',
+        // '你不开心，我也会哄着你开心，',
+        // '永远觉得你最漂亮，做梦都会梦见你，',
+        // '在我的心里，只有你！',
+        // // '工资奖金全交，',
+        // '剩菜剩饭全包，',
+        // '家务杂活全干，',
+        // '一切以老婆的话为最高宗旨，遵循2条原则：',
+        // '第一，老婆的话都是对的；',
+        // '第二，即使老婆错了，按照第一条执行。',
+        // '我爱你！'
+        '温柔的女人是金子，',
+        '漂亮的女人是钻石，',
+        '聪明的女人是宝藏，',
+        '可爱的女人是名画！',
+        '据考证，',
+        '你是世界上最大的宝藏，',
+        '里面藏满了金子、钻石和名画！',
+        '你沉鱼落雁',
+        '你闭月羞花',
+        '你蛾眉皓齿',
+        '你皓齿明眸',
+        '你绝色佳人',
+        '你兰质蕙心',
+        '你天生丽质',
+        '你国色天香',
+        '你最可爱',
+        '你最漂亮',
       ],
     }
   },
