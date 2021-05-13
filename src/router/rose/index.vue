@@ -1,6 +1,11 @@
 <template lang="html">
   <div class="rose">
-    <button @click="messageBox">20200202</button>
+    <button @click="messageBox">{{ new Date() | dateFormate('YYMMDD') }}</button>
+
+    <div class="heart">
+      <p>I&emsp;💗&emsp;U</p>
+    </div>
+
     <pre>
       <span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>
       <span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>
@@ -18,6 +23,81 @@
 .rose {
   width: 400px;
   margin: 0 auto;
+
+  .heart {
+    width: 200px;
+    height: 200px;
+    margin: 100px auto;
+    background: red;
+    transform: rotate(45deg);
+    animation-duration: 3s;
+    animation-name: heart;
+    animation-fill-mode: forwards;
+
+    &:before{
+      content: "";
+      width: 200px;
+      height: 200px;
+      background: red;
+      position: absolute;
+      border-radius: 50%;
+      transform: translateX(-100px);
+    }
+
+    &:after{
+      content: "";
+      width: 200px;
+      height: 200px;
+      background: red;
+      position: absolute;
+      border-radius: 50%;
+      transform: translateY(-100px);
+    }
+
+    p {
+      font-size: 2em;
+      color: blue;
+      position: absolute;
+      top: 30px;
+      left: 2px;
+      transform: rotate(-45deg);
+      animation-name: words;
+      animation-duration: 2s;
+      animation-delay: 3s;
+      z-index: 1;
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes heart{
+      25% {
+        transform: rotate(45deg) scale(1)
+      }
+
+      50% {
+        transform: rotate(45deg) scale(0.5)
+      }
+
+      75% {
+        transform: rotate(45deg) scale(1)
+      }
+
+      85% {
+        transform: rotate(45deg) scale(0.5)
+      }
+
+      100% {
+        transform: rotate(45deg) scale(1);
+      }
+    }
+
+    @keyframes words{
+      100% {
+        transform: rotate(315deg);
+        opacity: 0.8;
+      }
+    }
+  }
 
   button {
     position: relative;
@@ -53,7 +133,7 @@ export default {
         // '你不开心，我也会哄着你开心，',
         // '永远觉得你最漂亮，做梦都会梦见你，',
         // '在我的心里，只有你！',
-        // // '工资奖金全交，',
+        // '工资奖金全交，',
         // '剩菜剩饭全包，',
         // '家务杂活全干，',
         // '一切以老婆的话为最高宗旨，遵循2条原则：',
@@ -165,9 +245,11 @@ export default {
         closeOnClickModal: false,
       }).then(res => {
         if (this.i !== this.messages.length - 1) {
-          this.i++
+          this.i ++
 
           this.messageBox()
+        } else {
+          this.i = 0
         }
       })
     },
