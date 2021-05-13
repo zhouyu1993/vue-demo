@@ -2,6 +2,8 @@
   <div class="rose">
     <button @click="messageBox">{{ new Date() | dateFormate('YYMMDD') }}</button>
 
+    <canvas id="rose-canvas"></canvas>
+
     <div class="heart">
       <p>I&emsp;💗&emsp;U</p>
     </div>
@@ -15,7 +17,6 @@
       <span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66666666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666666666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>
       <span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>666666666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>66666666666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>666666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6666<span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span><span style="background: #ff079e; color: #fff;">9</span>6
     </pre>
-    <canvas id="rose-canvas"></canvas>
   </div>
 </template>
 
