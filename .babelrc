@@ -21,12 +21,10 @@
   "plugins": [
     [
       "component",
-      [
-        {
-          "libraryName": "mint-ui",
-          "style": true
-        }
-      ]
+      {
+        "libraryName": "mint-ui",
+        "style": true
+      }
     ],
     "transform-runtime"
   ]

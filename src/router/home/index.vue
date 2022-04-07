@@ -4,13 +4,20 @@
       <a href="//zhouyu1993.github.io/awesome/vue-demo/#/music">音乐搜索</a>
     </p>
     <p>
-      <a href="//zhouyu1993.github.io/awesome/vue-demo/#/salary-tax-calculator">工资(个税)计算器</a>
+      <a href="//zhouyu1993.github.io/awesome/vue-demo/#/salary-tax-calculator"
+        >工资(个税)计算器</a
+      >
     </p>
     <p>
       <a href="//zhouyu1993.github.io/awesome/vue-demo/#/rose">玫瑰花</a>
     </p>
     <p>
-      <a href="//zhouyu1993.github.io/awesome/vue-demo/#/force-refresh">强制刷新</a>
+      <a href="//zhouyu1993.github.io/awesome/vue-demo/#/force-refresh"
+        >强制刷新</a
+      >
+    </p>
+    <p>
+      <a href="//zhouyu1993.github.io/awesome/vue-demo/#/fruit">水果</a>
     </p>
   </div>
 </template>
@@ -18,15 +25,12 @@
 <script>
 export default {
   name: 'home',
-  data () {
-    return {
-    }
+  data() {
+    return {}
   },
-  components: {
-  },
-  watch: {
-  },
-  async mounted () {
+  components: {},
+  watch: {},
+  async mounted() {
     // const res1 = await fetch('//202.182.114.9/api/music/gethotkey')
     //
     // const json1 = await res1.json()
@@ -56,13 +60,12 @@ export default {
     // const json5 = await res5.json()
     //
     // console.log(json5)
-
     // const res6 = await fetch('//api.bzqll.com/music/tencent/search?key=579621905&s=秦时明月&limit=100&offset=0&type=song')
     //
     // const json6 = await res6.json()
     //
     // console.log(json6)
-  }
+  },
 }
 </script>
 

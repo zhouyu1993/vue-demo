@@ -32,13 +32,14 @@ module.exports = {
   ],
   // https://eslint.org/docs/rules/
   rules: {
-    'camelcase': 0,
+    camelcase: 0,
     'comma-dangle': 0,
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     'no-new': 0,
     'no-return-await': 0,
     'prefer-promise-reject-errors': 0,
+    'space-before-function-paren': 0,
     // ...
-  }
+  },
 }

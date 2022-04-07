@@ -8,6 +8,7 @@ const routers = [
   'todos',
   'todo',
   'test',
+  'fruit',
 ]
 
 const routes = routers.map(router => {
