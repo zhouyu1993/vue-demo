@@ -11,12 +11,21 @@
       @confirm="handleConfirm"
     />
     <div class="chart" id="column"></div>
+    <Button type="primary" class="choose-date" @click="openDatetimePicker">
+      选择日期：{{ date | dateFormate }}
+    </Button>
+    <div class="chart" id="column2"></div>
   </div>
 </template>
 
-<style scoped>
-.choose-date {
-  margin: 50px 0;
+<style lang="scss" scoped>
+.fruit {
+  padding: 20px;
+
+  .chart,
+  .choose-date {
+    margin-bottom: 50px;
+  }
 }
 </style>
 
@@ -45,20 +54,27 @@ export default {
   mounted() {
     json.forEach((value) => {
       value.item.forEach((item) => {
-        item.money = item.fruit
-          .map((item) => item.money)
-          .reduce((prev, next) => prev + next)
+        item.money = Number(
+          item.fruit
+            .map((item) => item.money)
+            .reduce((prev, next) => prev + next)
+            .toFixed(2)
+        )
       })
 
-      value.money = value.item
-        .map((item) => item.money)
-        .reduce((prev, next) => prev + next)
+      value.money = Number(
+        value.item
+          .map((item) => item.money)
+          .reduce((prev, next) => prev + next)
+          .toFixed(2)
+      )
     })
 
     this.json = json
 
     this.renderLine()
     this.renderColumn()
+    this.renderColumn2()
   },
   methods: {
     renderLine() {
@@ -70,6 +86,7 @@ export default {
         container: 'line',
         autoFit: true,
         height: 400,
+        appendPadding: [20, 0, 0, 0],
       })
 
       chart.data(data)
@@ -82,7 +99,7 @@ export default {
         .line()
         .position('time*money')
         .label('money', {
-          offset: 15,
+          offset: 20,
           style: {
             fill: '#000',
             fontSize: 10,
@@ -120,12 +137,26 @@ export default {
       chart.tooltip({
         shared: true,
         customItems: (items) => {
-          return items.map((item) => ({
-            ...item,
-            value: `(${item.data.fruit
-              .map((item) => item.name + item.money)
-              .join('+')})=${item.value}`,
-          }))
+          const money = Number(
+            items
+              .map((item) => item.data.money)
+              .reduce((prev, next) => prev + next)
+              .toFixed(2)
+          )
+
+          return [
+            {
+              name: '总计',
+              value: money,
+            },
+          ].concat(
+            items.map((item) => ({
+              ...item,
+              value: `(${item.data.fruit
+                .map((item) => item.name + item.money)
+                .join('+')})=${item.value}`,
+            }))
+          )
         },
       })
 
@@ -146,12 +177,77 @@ export default {
 
       this.chartColumn = chart
     },
+    renderColumn2() {
+      const item = this.json.filter(
+        (item) => item.time === dateFormate(this.date.getTime(), 'YYMMDD')
+      )
+      const data = item[0].item
+
+      const obj = {}
+      data.forEach((item) => {
+        item.fruit.forEach((fruit) => {
+          if (obj[fruit.name]) {
+            obj[fruit.name] += 1
+          } else {
+            obj[fruit.name] = 1
+          }
+        })
+      })
+
+      const arr = []
+      for (const key in obj) {
+        arr.push({
+          name: key,
+          value: obj[key],
+        })
+      }
+
+      arr.sort((prev, next) => prev.value - next.value)
+
+      console.log(arr)
+
+      if (this.chartColumn2) {
+        this.chartColumn2.changeData(arr)
+
+        return
+      }
+
+      const chart = new Chart({
+        container: 'column2',
+        autoFit: true,
+        height: 400,
+        appendPadding: [10, 0, 0, 0],
+      })
+
+      chart.data(arr)
+
+      chart.scale('value', {
+        nice: true,
+      })
+
+      chart
+        .interval()
+        .position('name*value')
+        .label('value', {
+          offset: 10,
+          style: {
+            fill: '#000',
+            fontSize: 10,
+          },
+        })
+        .color('name')
+
+      chart.render()
+
+      this.chartColumn2 = chart
+    },
     openDatetimePicker() {
       this.$refs.datetimePicker.open()
     },
     handleConfirm(date) {
       this.date = date
       this.renderColumn()
+      this.renderColumn2()
     },
   },
 }

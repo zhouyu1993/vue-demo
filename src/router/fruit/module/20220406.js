@@ -1,5 +1,5 @@
-import { a, c, d, e, f, g, h, i, j, k } from '../address.js'
-import { A, A_5, B, C, D, E, F, G, H, I, J, L } from '../fruit'
+import { a, c, d, e, f, g, h, i, j, k } from '../address'
+import { A, B, C, D, E, F, G, H, I, J, L } from '../fruit'
 
 const t1 = [
   {
@@ -186,7 +186,14 @@ const t2 = [
   {
     name: '羽羽',
     address: j,
-    fruit: [A_5, G, J],
+    fruit: [
+      {
+        ...A,
+        money: 35,
+      },
+      G,
+      J,
+    ],
   },
   {
     name: '柠檬树',
@@ -210,7 +217,7 @@ const t2 = [
       A,
       {
         ...I,
-        money: 150,
+        money: 100,
       },
     ],
   },

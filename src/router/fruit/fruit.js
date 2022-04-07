@@ -3,11 +3,6 @@ export const A = {
   money: 50,
 }
 
-export const A_5 = {
-  name: '耙耙柑',
-  money: 30,
-}
-
 export const B = {
   name: '水仙芒',
   money: 0,
@@ -54,7 +49,7 @@ export const J = {
 }
 
 export const K = {
-  name: '大草莓',
+  name: '草莓',
   money: 20,
 }
 
@@ -65,5 +60,10 @@ export const L = {
 
 export const M = {
   name: '沙地蜜瓜',
+  money: 0,
+}
+
+export const N = {
+  name: '水果',
   money: 0,
 }
