@@ -1,14 +1,14 @@
 import { a, c, d, e, f, g, h, i, j, k } from '../address'
-import { A, B, C, D, E, F, G, H, I, J, L } from '../fruit'
+import { PPG, SXM, HFS, WG, LWC, XM, XTM, XH, XFQ, LM, GL } from '../fruit'
 
 const t1 = [
   {
     name: 'kxzn2006',
     address: d,
     fruit: [
-      A,
+      PPG,
       {
-        ...B,
+        ...SXM,
         money: 56.8,
       },
     ],
@@ -16,34 +16,34 @@ const t1 = [
   {
     name: '多瑞',
     address: a,
-    fruit: [C],
+    fruit: [HFS],
   },
   {
     name: '岳文卿',
     address: d,
-    fruit: [A],
+    fruit: [PPG],
   },
   {
     name: '小爽爽',
     address: d,
-    fruit: [A],
+    fruit: [PPG],
   },
   {
     name: 'Liyr',
     address: d,
-    fruit: [A],
+    fruit: [PPG],
   },
   {
     name: '流云',
     address: c,
-    fruit: [C, D, E],
+    fruit: [HFS, WG, LWC],
   },
   {
     name: '柳林风声',
     address: d,
     fruit: [
       {
-        ...B,
+        ...SXM,
         money: 48,
       },
     ],
@@ -51,39 +51,39 @@ const t1 = [
   {
     name: 'SaltSweet',
     address: f,
-    fruit: [F],
+    fruit: [XM],
   },
   {
     name: 'summer赵',
     address: a,
-    fruit: [E, G],
+    fruit: [LWC, XTM],
   },
   {
     name: '宋昊',
     address: d,
-    fruit: [E, G],
+    fruit: [LWC, XTM],
   },
   {
     name: 'xzh',
     address: a,
-    fruit: [A],
+    fruit: [PPG],
   },
   {
     name: '一米阳光',
     address: d,
-    fruit: [E],
+    fruit: [LWC],
   },
   {
     name: '杨',
     address: d,
-    fruit: [E],
+    fruit: [LWC],
   },
   {
     name: 'FacelessMan',
     address: c,
     fruit: [
       {
-        ...H,
+        ...XH,
         money: 58,
       },
     ],
@@ -93,77 +93,77 @@ const t1 = [
     address: c,
     fruit: [
       {
-        ...B,
+        ...SXM,
         money: 56.7,
       },
-      F,
-      I,
+      XM,
+      XFQ,
     ],
   },
   {
     name: 'pengm',
     address: a,
-    fruit: [E],
+    fruit: [LWC],
   },
   {
     name: '杨琦',
     address: c,
-    fruit: [A],
+    fruit: [PPG],
   },
   {
     name: '悠',
     address: e,
-    fruit: [D],
+    fruit: [WG],
   },
   {
     name: '恒',
     address: c,
-    fruit: [A, F],
+    fruit: [PPG, XM],
   },
   {
     name: 'YJTX_ZJ🍭',
     address: a,
-    fruit: [F, G],
+    fruit: [XM, XTM],
   },
   {
     name: '刘先生',
     address: d,
-    fruit: [D],
+    fruit: [WG],
   },
   {
     name: 'yadong',
     address: d,
-    fruit: [C],
+    fruit: [HFS],
   },
   {
     name: '就知道吃',
     address: d,
-    fruit: [G],
+    fruit: [XTM],
   },
   {
     name: '杨桃',
     address: d,
-    fruit: [F],
+    fruit: [XM],
   },
   {
     name: 'xianping',
     address: c,
-    fruit: [E],
+    fruit: [LWC],
   },
   {
     name: '季宝儿',
     address: d,
-    fruit: [C, G],
+    fruit: [HFS, XTM],
   },
   {
     name: '太阳宝',
     address: d,
-    fruit: [A, G],
+    fruit: [PPG, XTM],
   },
   {
     name: 'Fanfan',
     address: c,
-    fruit: [D],
+    fruit: [WG],
   },
 ]
 
@@ -171,28 +171,28 @@ const t2 = [
   {
     name: '丁立梅',
     address: g,
-    fruit: [G],
+    fruit: [XTM],
   },
   {
     name: '玲珑',
     address: g,
-    fruit: [G],
+    fruit: [XTM],
   },
   {
     name: '孙云玲',
     address: g,
-    fruit: [F],
+    fruit: [XM],
   },
   {
     name: '羽羽',
     address: j,
     fruit: [
       {
-        ...A,
+        ...PPG,
         money: 35,
       },
-      G,
-      J,
+      XTM,
+      LM,
     ],
   },
   {
@@ -200,7 +200,7 @@ const t2 = [
     address: i,
     fruit: [
       {
-        ...J,
+        ...LM,
         money: 105,
       },
     ],
@@ -208,15 +208,15 @@ const t2 = [
   {
     name: '大敏',
     address: i,
-    fruit: [J],
+    fruit: [LM],
   },
   {
     name: '露西',
     address: j,
     fruit: [
-      A,
+      PPG,
       {
-        ...I,
+        ...XFQ,
         money: 100,
       },
     ],
@@ -224,7 +224,7 @@ const t2 = [
   {
     name: '小周周',
     address: h,
-    fruit: [D],
+    fruit: [WG],
   },
 ]
 
@@ -232,12 +232,12 @@ const t3 = [
   {
     name: 'Li.Zhang',
     address: k,
-    fruit: [D, F],
+    fruit: [WG, XM],
   },
   {
     name: 'Anthony',
     address: k,
-    fruit: [F, L],
+    fruit: [XM, GL],
   },
 ]
 

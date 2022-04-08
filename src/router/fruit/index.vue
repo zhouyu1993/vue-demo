@@ -48,7 +48,7 @@ export default {
   },
   filters: {
     dateFormate(date) {
-      return dateFormate(date.getTime(), 'YYMMDD')
+      return dateFormate(date.getTime(), 'YY-MM-DD')
     },
   },
   mounted() {
@@ -112,7 +112,7 @@ export default {
       const item = this.json.filter(
         (item) => item.time === dateFormate(this.date.getTime(), 'YYMMDD')
       )
-      const data = item[0].item
+      const data = (item[0] && item[0].item) || []
 
       console.log(data)
 
@@ -146,7 +146,7 @@ export default {
 
           return [
             {
-              name: '总计',
+              name: `${items.length}人总计`,
               value: money,
             },
           ].concat(
@@ -154,7 +154,12 @@ export default {
               ...item,
               value: `(${item.data.fruit
                 .map((item) => item.name + item.money)
-                .join('+')})=${item.value}`,
+                .join('+')})=${item.value}${item.data.pay ? '【付】' : ''}`,
+              ...(item.data.pick
+                ? {
+                    name: `${item.name}【送】`,
+                  }
+                : {}),
             }))
           )
         },
@@ -181,7 +186,7 @@ export default {
       const item = this.json.filter(
         (item) => item.time === dateFormate(this.date.getTime(), 'YYMMDD')
       )
-      const data = item[0].item
+      const data = (item[0] && item[0].item) || []
 
       const obj = {}
       data.forEach((item) => {

@@ -1,5 +1,19 @@
 import { a, c, d, f, h, i, j, l } from '../address'
-import { A, C, D, E, F, G, H, I, J, K, L, M, N } from '../fruit'
+import {
+  PPG,
+  HFS,
+  WG,
+  LWC,
+  XM,
+  XTM,
+  XH,
+  XFQ,
+  LM,
+  DCM,
+  GL,
+  SDMG,
+  SG,
+} from '../fruit'
 
 const t1 = [
   {
@@ -7,7 +21,7 @@ const t1 = [
     address: a,
     fruit: [
       {
-        ...H,
+        ...XH,
         money: 22.8,
       },
     ],
@@ -15,19 +29,19 @@ const t1 = [
   {
     name: '柳林风声',
     address: d,
-    fruit: [D],
+    fruit: [WG],
   },
   {
     name: 'soledad',
     address: d,
-    fruit: [D],
+    fruit: [WG],
   },
   {
     name: 'Liyr',
     address: d,
     fruit: [
       {
-        ...M,
+        ...SDMG,
         money: 37,
       },
     ],
@@ -35,56 +49,56 @@ const t1 = [
   {
     name: '姗',
     address: d,
-    fruit: [D],
+    fruit: [WG],
   },
   {
     name: 'XUE',
     address: a,
-    fruit: [E],
+    fruit: [LWC],
   },
   {
     name: 'John',
     address: d,
-    fruit: [E],
+    fruit: [LWC],
   },
   {
     name: '杨小姐的春夏秋冬',
     address: f,
-    fruit: [D],
+    fruit: [WG],
   },
   {
     name: '赵艳华',
     address: a,
-    fruit: [F],
+    fruit: [XM],
   },
   {
     name: '冯娅',
     address: a,
     fruit: [
       {
-        ...J,
+        ...LM,
         money: 17.5,
       },
-      K,
+      DCM,
     ],
   },
   {
     name: '丫丫',
     address: c,
-    fruit: [D],
+    fruit: [WG],
   },
   {
     name: 'yadong',
     address: d,
-    fruit: [C],
+    fruit: [HFS],
   },
   {
     name: '瑜',
     address: d,
     fruit: [
-      K,
+      DCM,
       {
-        ...M,
+        ...SDMG,
         money: 20.5,
       },
     ],
@@ -92,30 +106,30 @@ const t1 = [
   {
     name: '杨琦',
     address: c,
-    fruit: [J],
+    fruit: [LM],
   },
   {
     name: '恒',
     address: c,
-    fruit: [K],
+    fruit: [DCM],
   },
   {
     name: '皮皮卡丘',
     address: d,
-    fruit: [G],
+    fruit: [XTM],
   },
   {
     name: '小豆丁',
     address: d,
-    fruit: [C, G],
+    fruit: [HFS, XTM],
   },
   {
     name: 'lipple',
     address: d,
     fruit: [
-      C,
+      HFS,
       {
-        ...H,
+        ...XH,
         money: 23,
       },
     ],
@@ -125,7 +139,7 @@ const t1 = [
     address: c,
     fruit: [
       {
-        ...N,
+        ...SG,
         money: 67,
       },
     ],
@@ -136,75 +150,75 @@ const t2 = [
   {
     name: 'Laura',
     address: j,
-    fruit: [J, K],
+    fruit: [LM, DCM],
   },
   {
     name: '抱抱熊',
     address: h,
-    fruit: [K],
+    fruit: [DCM],
   },
   {
     name: '喜乐平安',
     address: h,
-    fruit: [K],
+    fruit: [DCM],
   },
   {
     name: '露西',
     address: j,
-    fruit: [A, I],
+    fruit: [PPG, XFQ],
   },
   {
     name: '雅赞  媛媛',
     address: i,
     fruit: [
-      E,
+      LWC,
       {
-        ...H,
+        ...XH,
         money: 28.8,
       },
       {
-        ...I,
+        ...XFQ,
         money: 33.4,
       },
-      L,
+      GL,
     ],
   },
   {
-    name: 'F. TIBTO🌈',
+    name: 'XM. TIBTO🌈',
     address: j,
-    fruit: [K],
+    fruit: [DCM],
   },
   {
     name: '鸢之羽',
     address: i,
-    fruit: [K],
+    fruit: [DCM],
   },
   {
     name: '贾',
     address: h,
-    fruit: [I],
+    fruit: [XFQ],
   },
   {
     name: '杺',
     address: j,
-    fruit: [D, K],
+    fruit: [WG, DCM],
   },
   {
     name: 'Honey',
     address: i,
-    fruit: [F, K],
+    fruit: [XM, DCM],
   },
   {
     name: '木木',
     address: h,
-    fruit: [F],
+    fruit: [XM],
   },
   {
     name: '王玮',
     address: h,
     fruit: [
       {
-        ...A,
+        ...PPG,
         money: 70,
       },
     ],
@@ -213,14 +227,14 @@ const t2 = [
 
 const t3 = [
   {
-    name: 'C',
+    name: 'HFS',
     address: l,
-    fruit: [E],
+    fruit: [LWC],
   },
   {
     name: '荷包蛋爱笑',
     address: l,
-    fruit: [K, L],
+    fruit: [DCM, GL],
   },
 ]
 
