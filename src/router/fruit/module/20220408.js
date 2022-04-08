@@ -105,6 +105,7 @@ const t1 = [
       GL,
     ],
     pick: 1,
+    pay: 1,
   },
   {
     name: '瑜',
@@ -228,6 +229,7 @@ const t2 = [
     name: '孙云玲',
     address: g,
     fruit: [YT],
+    pick: 1,
     pay: 1,
   },
 ]
@@ -237,22 +239,29 @@ const t3 = [
     name: '郭先生',
     address: k,
     fruit: [DCM, GL],
+    pick: 1,
     pay: 1,
   },
   {
     name: '一夕樱',
     address: l,
     fruit: [DCM],
+    pick: 1,
+    pay: 1,
   },
   {
     name: '瓜头不瓜',
     address: l,
     fruit: [XM],
+    pick: 1,
+    pay: 1,
   },
   {
     name: 'Roos Roos PPG Capella 🥀',
     address: l,
     fruit: [QX],
+    pick: 1,
+    pay: 1,
   },
   {
     name: '雨滴答滴答',
@@ -260,10 +269,12 @@ const t3 = [
     fruit: [
       {
         ...SXM,
-        money: 20,
+        money: 26,
       },
       LM,
     ],
+    pick: 1,
+    pay: 1,
   },
 ]
 
