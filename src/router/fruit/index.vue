@@ -155,11 +155,7 @@ export default {
               value: `(${item.data.fruit
                 .map((item) => item.name + item.money)
                 .join('+')})=${item.value}${item.data.pay ? '【付】' : ''}`,
-              ...(item.data.pick
-                ? {
-                    name: `${item.name}【送】`,
-                  }
-                : {}),
+              ...(item.data.pick ? { name: `${item.name}【送】` } : {}),
             }))
           )
         },

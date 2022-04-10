@@ -15,6 +15,7 @@ import {
   SG,
   QX,
   YT,
+  XFQ,
 } from '../fruit'
 
 const t1 = [
@@ -37,6 +38,7 @@ const t1 = [
     address: d,
     fruit: [WG],
     pick: 1,
+    pay: 1,
   },
   {
     name: '就知道吃',
@@ -70,6 +72,7 @@ const t1 = [
     address: d,
     fruit: [DCM],
     pick: 1,
+    pay: 1,
   },
   {
     name: '快乐至上',
@@ -77,9 +80,11 @@ const t1 = [
     fruit: [
       {
         ...SG,
-        money: 100,
+        money: 160,
       },
     ],
+    pick: 1,
+    pay: 1,
   },
   {
     name: '恒',
@@ -93,6 +98,7 @@ const t1 = [
       DCM,
     ],
     pick: 1,
+    pay: 1,
   },
   {
     name: '涂小勇',
@@ -112,6 +118,7 @@ const t1 = [
     address: d,
     fruit: [QX],
     pick: 1,
+    pay: 1,
   },
   {
     name: 'Goldy',
@@ -144,6 +151,7 @@ const t1 = [
       QX,
     ],
     pick: 1,
+    pay: 1,
   },
   {
     name: 'sharon',
@@ -157,6 +165,7 @@ const t1 = [
     address: a,
     fruit: [LM, DCM],
     pick: 1,
+    pay: 1,
   },
   {
     name: 'pengmin',
@@ -176,6 +185,7 @@ const t1 = [
       },
     ],
     pick: 1,
+    pay: 1,
   },
   {
     name: '冯娅',
@@ -196,11 +206,15 @@ const t2 = [
         money: 40,
       },
     ],
+    pick: 1,
+    pay: 1,
   },
   {
     name: '小面包',
     address: h,
     fruit: [LWC, DCM],
+    pick: 1,
+    pay: 1,
   },
   {
     name: '崔子贤，王皓',
@@ -209,10 +223,12 @@ const t2 = [
       WG,
       {
         ...XH,
-        money: 20,
+        money: 24,
       },
       QX,
     ],
+    pick: 1,
+    pay: 1,
   },
   {
     name: 'Honey',
@@ -221,14 +237,28 @@ const t2 = [
       DCM,
       {
         ...SDMG,
-        money: 10,
+        money: 18,
       },
     ],
+    pick: 1,
+    pay: 1,
   },
   {
     name: '孙云玲',
     address: g,
     fruit: [YT],
+    pick: 1,
+    pay: 1,
+  },
+  {
+    name: '贾',
+    address: h,
+    fruit: [
+      {
+        ...XFQ,
+        money: 36,
+      },
+    ],
     pick: 1,
     pay: 1,
   },
