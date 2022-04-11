@@ -1,10 +1,10 @@
-import { zxrcgy, mlxq, ssw3 } from '../address'
-import { HFS100, XH, PPG, XFQ } from '../fruit'
+import { rcgy, mlxq, ssw3, fryj, ssw1 } from '../address'
+import { HFS100, XH, PPG, XFQ, LWC, WG, HFS85, QX } from '../fruit'
 
 const t1 = [
   {
     name: 'bxs',
-    address: zxrcgy,
+    address: rcgy,
     fruit: [HFS100],
     pick: 1,
     // pay: 1,
@@ -42,6 +42,28 @@ const t2 = [
     ],
     pick: 1,
     // pay: 1,
+  },
+  {
+    name: '孙芳',
+    address: fryj,
+    fruit: [HFS100, LWC],
+  },
+  {
+    name: '潇湘',
+    address: ssw3,
+    fruit: [WG, HFS85],
+  },
+  {
+    name: '大敏',
+    address: ssw1,
+    fruit: [
+      {
+        ...XH,
+        money: 27,
+      },
+      HFS85,
+      QX,
+    ],
   },
 ]
 
