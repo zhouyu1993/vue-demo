@@ -29,6 +29,7 @@ const t1 = [
     address: zj,
     fruit: [LM],
     pick,
+    pay,
   },
   {
     name: 'Liyr',
@@ -48,6 +49,7 @@ const t1 = [
     address: zj,
     fruit: [LM, LWC],
     pick,
+    pay,
   },
   {
     name: 'Anne',
@@ -60,6 +62,7 @@ const t1 = [
     address: zj,
     fruit: [HFS85, XM],
     pick,
+    pay,
   },
   {
     name: 'pengmin',
@@ -89,6 +92,7 @@ const t1 = [
     address: zj,
     fruit: [HFS100, DCM],
     pick,
+    pay,
   },
   {
     name: 'xianping',
@@ -138,6 +142,7 @@ const t1 = [
     address: zj,
     fruit: [GL],
     pick,
+    pay,
   },
   {
     name: '萱爸',
@@ -163,16 +168,21 @@ const t2 = [
         money: 40,
       },
     ],
+    pick,
   },
   {
     name: '抱抱熊',
     address: fryj,
     fruit: [DCM],
+    pick,
+    pay,
   },
   {
     name: 'lqy',
     address: ssw3,
     fruit: [HFS85],
+    pick,
+    pay,
   },
   {
     name: '小周周',
@@ -185,6 +195,7 @@ const t2 = [
     name: '朱颜辞镜',
     address: fryj,
     fruit: [DCM, XM],
+    pick,
   },
   {
     name: 'Laura',
@@ -219,24 +230,34 @@ const t2 = [
   {
     name: '牧牧',
     address: ssw3,
-    fruit: [WG, XM],
+    fruit: [_WG, XM],
     pick,
+    pay,
   },
   {
     name: '韩歹歹',
     address: ssw3,
-    fruit: [WG],
+    fruit: [_WG],
+    pick,
     pay,
   },
   {
-    name: 'WH',
+    name: '王皓',
     address: ssw1,
     fruit: [
       {
         ...XH,
-        money: 15,
+        money: 18.6,
       },
     ],
+    pick,
+  },
+  {
+    name: '晶针姑🍄',
+    address: ssw3,
+    fruit: [DCM],
+    pick,
+    pay,
   },
 ]
 
