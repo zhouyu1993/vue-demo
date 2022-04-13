@@ -1,5 +1,5 @@
 // sw version，
-var version = '20220411'
+var version = '20220413'
 var CACHE_NAME = 'vue-demo-sw-v' + version
 
 var urlsToCache = [

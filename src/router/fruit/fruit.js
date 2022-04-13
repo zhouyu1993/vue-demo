@@ -58,6 +58,11 @@ export const LM = {
   money: 35,
 }
 
+export const CM = {
+  name: '草莓',
+  money: 13,
+}
+
 export const DCM = {
   name: '大草莓',
   money: 20,
@@ -86,4 +91,9 @@ export const QX = {
 export const YT = {
   name: '樱桃',
   money: 130,
+}
+
+export const YJM = {
+  name: '羊角蜜',
+  money: 0,
 }
