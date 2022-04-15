@@ -97,3 +97,13 @@ export const YJM = {
   name: '羊角蜜',
   money: 0,
 }
+
+export const XBL = {
+  name: '小菠萝',
+  money: 22,
+}
+
+export const GH = {
+  name: '干货',
+  money: 0,
+}
