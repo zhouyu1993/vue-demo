@@ -1,5 +1,6 @@
 <template>
   <div class="fruit">
+    <div>合计：{{ money }}元</div>
     <div class="chart" id="line"></div>
     <Button type="primary" class="choose-date" @click="openDatetimePicker">
       选择日期：{{ date | dateFormate }}
@@ -43,6 +44,7 @@ export default {
   data() {
     return {
       json: {},
+      money: 0,
       date: new Date(),
     }
   },
@@ -71,6 +73,11 @@ export default {
     })
 
     this.json = json
+
+    this.money = json
+      .map((item) => item.money)
+      .reduce((prev, next) => prev + next)
+      .toFixed(2)
 
     this.renderLine()
     this.renderColumn()

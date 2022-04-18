@@ -18,6 +18,11 @@ export const HFS85 = {
   money: 26,
 }
 
+export const HFS95 = {
+  name: '红富士85号',
+  money: 32,
+}
+
 export const HFS100 = {
   name: '红富士100号',
   money: 32,
@@ -41,6 +46,11 @@ export const XM = {
 export const XTM = {
   name: '小台芒',
   money: 15,
+}
+
+export const TM = {
+  name: '台芒',
+  money: 16,
 }
 
 export const XH = {
@@ -105,5 +115,20 @@ export const XBL = {
 
 export const GH = {
   name: '干货',
+  money: 0,
+}
+
+export const XL = {
+  name: '香梨',
+  money: 22,
+}
+
+export const MHT = {
+  name: '弥猴桃',
+  money: 10,
+}
+
+export const XJ = {
+  name: '香蕉',
   money: 0,
 }

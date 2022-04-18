@@ -42,9 +42,6 @@ const _XM = {
   money: 28,
 }
 
-const pick = 1
-const pay = 1
-
 const t1 = [
   {
     name: 'YY',
