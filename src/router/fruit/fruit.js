@@ -132,3 +132,8 @@ export const XJ = {
   name: '香蕉',
   money: 0,
 }
+
+export const FL = {
+  name: '凤梨',
+  money: 18,
+}

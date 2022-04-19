@@ -12,6 +12,7 @@ import {
 } from '../address'
 import {
   DCM,
+  FL,
   HFS100,
   LM,
   LWC,
@@ -96,7 +97,7 @@ const t1 = [
       },
       {
         ...SXM,
-        money: 20,
+        money: 27,
       },
     ],
   },
@@ -106,13 +107,13 @@ const t1 = [
     fruit: [_PPG],
   },
   {
-    name: '酒酿圆子_zxk',
+    name: '瑜',
     address: zj,
     fruit: [
       _DCM,
       {
         ...YJM,
-        money: 15,
+        money: 21.6,
       },
     ],
   },
@@ -141,6 +142,16 @@ const t1 = [
         money: 40,
       },
     ],
+  },
+  {
+    name: '天使布瓦',
+    address: zx3,
+    fruit: [_DCM, XBL],
+  },
+  {
+    name: '瓶子',
+    address: zx2,
+    fruit: [LWC],
   },
 ]
 
@@ -215,6 +226,29 @@ const t2 = [
     name: '露西',
     address: ssw3,
     fruit: [_PPG, _PPG, _PPG, _PPG],
+  },
+  {
+    name: '晶针姑🍄',
+    address: ssw3,
+    fruit: [XBL],
+  },
+  {
+    name: '旺旺孙冰冰🧊',
+    address: ssw3,
+    fruit: [FL],
+  },
+  {
+    name: '大敏',
+    address: ssw1,
+    fruit: [
+      {
+        ...XJ,
+        money: 8.6,
+      },
+      QX,
+      FL,
+      HFS100,
+    ],
   },
 ]
 
