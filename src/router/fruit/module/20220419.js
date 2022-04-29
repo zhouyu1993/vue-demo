@@ -1,5 +1,5 @@
-import { ssw1, ssw3, zhgj, zj, zx1, zx2, zx3 } from '../address'
-import { DCM, FL, LM, LWC, MHT, PPG, WG, XH, XJ, XM, YJM } from '../fruit'
+import { ssw1, ssw3, zj, zx1, zx2, zx3 } from '../address'
+import { DCM, FL, LM, LWC, MHT, PPG, QX, WG, XH, XJ, XM, YJM } from '../fruit'
 
 const _DCM = {
   ...DCM,
@@ -23,7 +23,7 @@ const _XM = {
 }
 
 const pick = 1
-const pay = 1
+// const pay = 1
 
 const t1 = [
   {
@@ -42,11 +42,13 @@ const t1 = [
         money: 8,
       },
     ],
+    pick,
   },
   {
     name: 'XUE',
     address: zx1,
     fruit: [_LWC],
+    pick,
   },
   {
     name: 'F',
@@ -57,6 +59,7 @@ const t1 = [
     name: 'Angelia',
     address: zx1,
     fruit: [_DCM],
+    pick,
   },
   {
     name: 'Jane',
@@ -67,6 +70,7 @@ const t1 = [
     name: 'summer',
     address: zx1,
     fruit: [_DCM],
+    pick,
   },
   {
     name: '团子',
@@ -85,15 +89,17 @@ const t1 = [
     fruit: [
       {
         ...XJ,
-        money: 10,
+        money: 7.3,
       },
       MHT,
     ],
+    pick,
   },
   {
     name: 'FacelessMan',
     address: zx1,
     fruit: [_DCM, _XM],
+    pick,
   },
   {
     name: '丫丫',
@@ -118,15 +124,20 @@ const t1 = [
       _DCM,
       {
         ...YJM,
-        money: 20,
+        money: 26.5,
       },
     ],
+    pick,
+  },
+  {
+    name: '蓝天',
+    address: zj,
+    fruit: [_PPG],
+    pick,
   },
 ]
 
-const t2 = []
-
-const t3 = [
+const t2 = [
   {
     name: '露西',
     address: ssw3,
@@ -139,10 +150,49 @@ const t3 = [
       _DCM,
       {
         ...XH,
-        money: 20,
+        money: 24.5,
+      },
+    ],
+  },
+  {
+    name: '雪精灵',
+    address: ssw3,
+    fruit: [_DCM, MHT, LM],
+  },
+  {
+    name: 'Laura',
+    address: ssw3,
+    fruit: [LM, QX],
+  },
+  {
+    name: '阿崔',
+    address: ssw1,
+    fruit: [
+      {
+        ...XH,
+        money: 32.5,
+      },
+      FL,
+    ],
+  },
+  {
+    name: 'ccc',
+    address: ssw3,
+    fruit: [LM, _DCM],
+  },
+  {
+    name: '小周周',
+    address: ssw3,
+    fruit: [
+      MHT,
+      {
+        ...XH,
+        money: 31,
       },
     ],
   },
 ]
+
+const t3 = []
 
 export default [].concat(t1, t2, t3)

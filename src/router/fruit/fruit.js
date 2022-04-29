@@ -3,6 +3,11 @@ export const PPG = {
   money: 50,
 }
 
+export const PPG45 = {
+  name: '耙耙柑',
+  money: 45,
+}
+
 export const SXM = {
   name: '水仙芒',
   money: 0,
@@ -33,9 +38,19 @@ export const WG = {
   money: 22,
 }
 
+export const WG35 = {
+  name: '沃柑',
+  money: 35,
+}
+
 export const LWC = {
   name: '伦晚橙',
   money: 18,
+}
+
+export const LWC22 = {
+  name: '伦晚橙',
+  money: 22,
 }
 
 export const XM = {
@@ -71,6 +86,11 @@ export const LM = {
 export const CM = {
   name: '草莓',
   money: 13,
+}
+
+export const CM15 = {
+  name: '草莓',
+  money: 15,
 }
 
 export const DCM = {
@@ -136,4 +156,14 @@ export const XJ = {
 export const FL = {
   name: '凤梨',
   money: 18,
+}
+
+export const XG = {
+  name: '西瓜',
+  money: 20,
+}
+
+export const HMG = {
+  name: '哈密瓜',
+  money: 20,
 }

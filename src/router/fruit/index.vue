@@ -84,6 +84,27 @@ export default {
     this.renderColumn2()
   },
   methods: {
+    getWeek(date) {
+      const week = date.getDay()
+      switch (week) {
+        case 1:
+          return '周一'
+        case 2:
+          return '周二'
+        case 3:
+          return '周三'
+        case 4:
+          return '周四'
+        case 5:
+          return '周五'
+        case 6:
+          return '周六'
+        case 0:
+          return '周日'
+        default:
+          return ''
+      }
+    },
     renderLine() {
       const data = this.json
 
@@ -112,6 +133,17 @@ export default {
             fontSize: 10,
           },
         })
+
+      chart.tooltip({
+        shared: true,
+        title: (title) => {
+          const y = title.slice(0, 4)
+          const m = title.slice(4, 6)
+          const d = title.slice(6, 8)
+          const ymd = [y, m, d].join('-')
+          return `${ymd}【${this.getWeek(new Date(ymd))}】`
+        },
+      })
 
       chart.render()
     },
