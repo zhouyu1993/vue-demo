@@ -242,7 +242,7 @@ const t2 = [
     fruit: [CM],
   },
   {
-    name: 'Ocean',
+    name: 'ocean',
     address: ssw3,
     fruit: [
       {

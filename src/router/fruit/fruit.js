@@ -167,3 +167,13 @@ export const HMG = {
   name: '哈密瓜',
   money: 20,
 }
+
+export const HLG = {
+  name: '火龙果',
+  money: 18,
+}
+
+export const QT = {
+  name: '青提',
+  money: 33,
+}
