@@ -177,3 +177,8 @@ export const QT = {
   name: '青提',
   money: 33,
 }
+
+export const JG = {
+  name: '金果',
+  money: 27,
+}
