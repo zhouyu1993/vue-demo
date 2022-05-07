@@ -1,5 +1,8 @@
 <template>
   <div class="fruit">
+    <Button type="primary" class="just-month" @click="justMonth">
+      只看本月
+    </Button>
     <div>合计：{{ money }}元</div>
     <div class="chart" id="line"></div>
     <Button type="primary" class="choose-date" @click="openDatetimePicker">
@@ -21,11 +24,16 @@
 
 <style lang="scss" scoped>
 .fruit {
-  padding: 20px;
+  padding: 0 20px 20px;
 
   .chart,
   .choose-date {
     margin-bottom: 50px;
+  }
+
+  .just-month {
+    display: block;
+    margin: 0 auto;
   }
 }
 </style>
@@ -72,9 +80,16 @@ export default {
       )
     })
 
-    this.json = json
+    if (this.$route.query.month) {
+      const today = dateFormate(this.date.getTime(), 'YYMM')
+      this.json = json.filter((item) => {
+        return item.time.slice(0, 6) === today
+      })
+    } else {
+      this.json = json
+    }
 
-    this.money = json
+    this.money = this.json
       .map((item) => item.money)
       .reduce((prev, next) => prev + next)
       .toFixed(2)
@@ -109,6 +124,12 @@ export default {
       const data = this.json
 
       console.log(data)
+
+      if (this.chartLine) {
+        this.chartLine.changeData(data)
+
+        return
+      }
 
       const chart = new Chart({
         container: 'line',
@@ -146,11 +167,12 @@ export default {
       })
 
       chart.render()
+
+      this.chartLine = chart
     },
     renderColumn() {
-      const item = this.json.filter(
-        (item) => item.time === dateFormate(this.date.getTime(), 'YYMMDD')
-      )
+      const today = dateFormate(this.date.getTime(), 'YYMMDD')
+      const item = this.json.filter((item) => item.time === today)
       const data = (item[0] && item[0].item) || []
 
       console.log(data)
@@ -218,9 +240,8 @@ export default {
       this.chartColumn = chart
     },
     renderColumn2() {
-      const item = this.json.filter(
-        (item) => item.time === dateFormate(this.date.getTime(), 'YYMMDD')
-      )
+      const today = dateFormate(this.date.getTime(), 'YYMMDD')
+      const item = this.json.filter((item) => item.time === today)
       const data = (item[0] && item[0].item) || []
 
       const obj = {}
@@ -280,6 +301,19 @@ export default {
       chart.render()
 
       this.chartColumn2 = chart
+    },
+    justMonth() {
+      const today = dateFormate(this.date.getTime(), 'YYMM')
+      this.json = json.filter((item) => {
+        return item.time.slice(0, 6) === today
+      })
+
+      this.money = this.json
+        .map((item) => item.money)
+        .reduce((prev, next) => prev + next)
+        .toFixed(2)
+
+      this.renderLine()
     },
     openDatetimePicker() {
       this.$refs.datetimePicker.open()
