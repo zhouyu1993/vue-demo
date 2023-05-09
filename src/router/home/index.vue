@@ -1,20 +1,25 @@
 <template>
   <div class="home">
     <p>
+      <a href="//zhouyu1993.github.io/awesome/vue-demo/#/endowment-insurance">
+        养老保险
+      </a>
+    </p>
+    <p>
       <a href="//zhouyu1993.github.io/awesome/vue-demo/#/music">音乐搜索</a>
     </p>
     <p>
-      <a href="//zhouyu1993.github.io/awesome/vue-demo/#/salary-tax-calculator"
-        >工资(个税)计算器</a
-      >
+      <a href="//zhouyu1993.github.io/awesome/vue-demo/#/salary-tax-calculator">
+        工资(个税)计算器
+      </a>
     </p>
     <p>
       <a href="//zhouyu1993.github.io/awesome/vue-demo/#/rose">玫瑰花</a>
     </p>
     <p>
-      <a href="//zhouyu1993.github.io/awesome/vue-demo/#/force-refresh"
-        >强制刷新</a
-      >
+      <a href="//zhouyu1993.github.io/awesome/vue-demo/#/force-refresh">
+        强制刷新
+      </a>
     </p>
     <p>
       <a href="//zhouyu1993.github.io/awesome/vue-demo/#/fruit">水果</a>

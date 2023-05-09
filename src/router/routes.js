@@ -9,9 +9,10 @@ const routers = [
   'todo',
   'test',
   'fruit',
+  'endowment-insurance',
 ]
 
-const routes = routers.map(router => {
+const routes = routers.map((router) => {
   let path = `/${router}`
   let name = router
   let component = async () => await import(`./${router}`)
