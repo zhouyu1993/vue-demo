@@ -7,7 +7,7 @@
       placeholder="再缴几年(d最少2年，m最少4年。d、m最多8年)"
       class="long"
     />
-    <input type="text" v-model="year" placeholder="多少岁" />
+    <input type="text" v-model="year" placeholder="查看退休多少年后" />
     <button @click="getData">确定</button>
     <Popup v-model="popupVisible">
       <div class="content">
@@ -110,7 +110,7 @@ export default {
       this.popupVisible = true
     },
     fetchData(old_line_num = 4) {
-      const new_line_arr = [500, 2500, 5000, 8000, 10000]
+      const new_line_arr = [500, 2500, 5000, 10000]
       const new_line_num_arr = [15 - old_line_num - 9, 8]
       const year_arr = [10, 15, 20]
       const data = []
@@ -138,13 +138,25 @@ export default {
     },
     calculate(old_line_num = 4, new_line = 2500, new_line_num = 2, year = 10) {
       // 个人缴费总额
+      // 200档次的，爸是4年，妈是2年；300档次的8年；500档次的1年；新档次的
       const pay =
         200 * old_line_num + 300 * 8 + 500 * 1 + new_line * new_line_num
       // 政府补贴总额
-      const perk = 10 * old_line_num + 20 * 8 + 30 * 1 + 200 * new_line_num
+      // 选择 100元缴费档次的补贴 30元；选择 500 元缴费档次的补贴 60 元; 选择 800元缴费档次的补贴 90 元; 选择 1200 元缴费档次的补贴 120 元; 选择 2000元缴费档次的补贴 150 元; 选择 2500 元及以上缴费档次的补贴 200 元
+      // 补缴以前年度保费不享受缴费补贴。
+      // 之前的补贴不清楚，以0计算。500元的补贴60元
+      let new_line_perk = 30
+      if (+new_line === 500) {
+        new_line_perk = 60
+      } else if (new_line >= 2500) {
+        new_line_perk = 200
+      }
+      const perk =
+        0 * old_line_num + 0 * 8 + 60 * 1 + new_line_perk * new_line_num
       // 个人账户总额
       const total = pay + perk
       // 60岁后月领养老金
+      // 淮安区基础养老金标准在200元左右
       const m_annuity = total / 139 + 200
       // 至X岁养老金总额
       const annuity = m_annuity * 12 * year
